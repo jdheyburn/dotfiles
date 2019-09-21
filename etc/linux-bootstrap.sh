@@ -25,7 +25,10 @@ git clone https://github.com/jdheyburn/dotfiles.git ~/dotfiles
 # Execute before stuff is installed?
 mkdir -p ~/.oh-my-zsh/custom/plugins
 mkdir -p ~/.config/Code/User
+mkdir -p ~/.config/Hyper
+
 ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.hyper.js ~/.config/Hyper/.hyper.js
 ln -s ~/dotfiles/.hyper.js ~/.hyper.js
 ln -s ~/dotfiles/.oh-my-zsh/custom/common.zsh ~/.oh-my-zsh/custom/common.zsh
 ln -s ~/dotfiles/vscode/vscode-settings.json ~/.config/Code/User/settings.json

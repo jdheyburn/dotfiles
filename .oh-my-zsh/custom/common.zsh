@@ -7,7 +7,8 @@
 # Aliases
 alias cl=clear
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias rm="trash"
+# Macos only...
+#alias rm="trash"
 alias awscf="vi ~/.aws/config"
 alias gpm="git pull origin master"
 alias mv="mv -v"
