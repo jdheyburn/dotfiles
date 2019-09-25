@@ -37,13 +37,16 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/cust
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # TODO - test the below
-local GOLANG_VERSION="1.13"
-local tmpdir=$(mktemp -d)
-cd $tmpdir
-wget "https://dl.google.com/go/go$GOLANG_VERSION.linux-amd64.tar.gz"
-tar -zxvf "go$GOLANG_VERSION.linux-amd64.tar.gz"
-cd go/src
-./all.bash
-
+local VERSION="1.13"
+local OS="linux"
+local ARCH="amd64"
+local GO_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
+wget "https://dl.google.com/go/$GO_FILENAME"
+sudo tar -C /usr/local -xzf $GO_FILENAME
+rm $GO_FILENAME
+mkdir $HOME/go
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
 
 
