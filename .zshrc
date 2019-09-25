@@ -106,4 +106,6 @@ source $ZSH/oh-my-zsh.sh
 # Remove user@hostname from prompt
 prompt_context() {}
 
+# TODO a check for darwin here
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh

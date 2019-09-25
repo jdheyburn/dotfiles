@@ -36,4 +36,14 @@ ln -s ~/dotfiles/vscode/vscode-settings.json ~/.config/Code/User/settings.json
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
+# TODO - test the below
+local GOLANG_VERSION="1.13"
+local tmpdir=$(mktemp -d)
+cd $tmpdir
+wget "https://dl.google.com/go/go$GOLANG_VERSION.linux-amd64.tar.gz"
+tar -zxvf "go$GOLANG_VERSION.linux-amd64.tar.gz"
+cd go/src
+./all.bash
+
+
 
