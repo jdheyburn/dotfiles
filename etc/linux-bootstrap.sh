@@ -1,4 +1,5 @@
 transmission
+transmission-daemon
 neovim
 nordvpn (look up instructions)
 hyper (via some non cli way)
