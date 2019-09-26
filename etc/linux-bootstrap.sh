@@ -56,6 +56,7 @@ github.com/golangci/golangci-lint/cmd/golangci-lint
 code --install-extension ms-vscode.go
 pkief.material-icon-theme
 equinusocio.vsc-material-theme
+esbenp.prettier-vscode
 
 # Hugo
 # TODO check with how go is installed - can we remove the tmpdir?
