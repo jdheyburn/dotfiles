@@ -37,10 +37,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/cust
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # TODO - test the below
-local VERSION="1.13"
+local GO_VERSION="1.13"
 local OS="linux"
 local ARCH="amd64"
-local GO_FILENAME="go$VERSION.$OS-$ARCH.tar.gz"
+local GO_FILENAME="go$GO_VERSION.$OS-$ARCH.tar.gz"
 wget "https://dl.google.com/go/$GO_FILENAME"
 sudo tar -C /usr/local -xzf $GO_FILENAME
 rm $GO_FILENAME
@@ -49,4 +49,43 @@ export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 
+go get -v golang.org/x/tools/gopls
+github.com/golangci/golangci-lint/cmd/golangci-lint
 
+# TODO put into list and loop over
+code --install-extension ms-vscode.go
+pkief.material-icon-theme
+equinusocio.vsc-material-theme
+
+# Hugo
+# TODO check with how go is installed - can we remove the tmpdir?
+local tmpdir=$(mktemp -d)
+local cwd=$(pwd)
+cd $tmpdir
+local HUGO_VERSION="0.58.3"
+wget "https://github.com/gohugoio/hugo/releases/download/v$HUGO_VERSION/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+tar -zxvf "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+sudo mv -v hugo /usr/local/bin
+hugo version
+cd $cwd
+rm -rf $tmpdir
+
+# VirtualBox
+# TODO check the fingerprint
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+sudo apt-get install virtualbox
+
+# Docker
+sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common
+# TODO check the fingerprint
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+# TODO below doesn't work?
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
