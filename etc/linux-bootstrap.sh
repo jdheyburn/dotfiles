@@ -72,6 +72,19 @@ hugo version
 cd $cwd
 rm -rf $tmpdir
 
+# Cryptomator
+sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
+sudo apt-get update
+sudo apt-get install cryptomator
+
+# ncdu - disk usage analyser
+local NCDU_VERSION="1.14.1"
+wget "https://dev.yorhel.nl/download/ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+tar -zxvf "ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+sudo mv -v ncdu /usr/local/bin
+ncdu --version
+rm "ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+
 # VirtualBox
 # TODO check the fingerprint
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -

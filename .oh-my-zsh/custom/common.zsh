@@ -73,6 +73,11 @@ function sd {
 }
 
 # UnZip - unzip the archive into a dir at the same location with the archive name
+readlinkCmd="readlink"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    readlinkCmd="greadlink"
+fi
+
 function uz {
     local archive=$1
     if [ -z "$archive" ]; then
@@ -80,7 +85,7 @@ function uz {
         return 1
     fi
 
-    local archivePath=$(greadlink -f $archive)
+    local archivePath=$($readlinkCmd -f $archive)
     if [ ! -f $archivePath ]; then
         echo "uz - Archive not found: $archivePath"
         return 1
