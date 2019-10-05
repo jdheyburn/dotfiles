@@ -58,6 +58,7 @@ code --install-extension ms-vscode.go
 pkief.material-icon-theme
 equinusocio.vsc-material-theme
 esbenp.prettier-vscode
+CoenraadS.bracket-pair-colorizer
 
 # Hugo
 # TODO check with how go is installed - can we remove the tmpdir?
