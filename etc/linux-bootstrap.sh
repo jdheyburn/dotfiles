@@ -59,6 +59,7 @@ pkief.material-icon-theme
 equinusocio.vsc-material-theme
 esbenp.prettier-vscode
 CoenraadS.bracket-pair-colorizer
+streetsidesoftware.code-spell-checker
 
 # Hugo
 # TODO check with how go is installed - can we remove the tmpdir?
