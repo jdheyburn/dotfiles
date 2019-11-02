@@ -1,3 +1,7 @@
+# TODO convert this into a modular script instead of just a bunch of random notes
+
+# Add https://github.com/sharkdp/bat to the script too
+
 transmission
 transmission-daemon
 neovim
@@ -10,6 +14,8 @@ fzf
 fonts-powerline
 tmux
 npm
+python3-pip
+tree
 
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
@@ -53,13 +59,7 @@ export PATH=$PATH:/usr/local/go/bin
 go get -v golang.org/x/tools/gopls
 github.com/golangci/golangci-lint/cmd/golangci-lint
 
-# TODO put into list and loop over
-code --install-extension ms-vscode.go
-pkief.material-icon-theme
-equinusocio.vsc-material-theme
-esbenp.prettier-vscode
-CoenraadS.bracket-pair-colorizer
-streetsidesoftware.code-spell-checker
+
 
 # Hugo
 # TODO check with how go is installed - can we remove the tmpdir?
@@ -81,11 +81,12 @@ sudo apt-get install cryptomator
 
 # ncdu - disk usage analyser
 local NCDU_VERSION="1.14.1"
-wget "https://dev.yorhel.nl/download/ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
-tar -zxvf "ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+local NCDU_FILENAME="ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+wget "https://dev.yorhel.nl/download/$NCDU_FILENAME"
+tar -zxvf $NCDU_FILENAME
 sudo mv -v ncdu /usr/local/bin
 ncdu --version
-rm "ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
+rm $NCDU_FILENAME
 
 # VirtualBox
 # TODO check the fingerprint
@@ -106,3 +107,7 @@ sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/debian \
    $(lsb_release -cs) \
    stable"
+
+# Python pip stuff
+/usr/bin/python3 -m pip install -U autopep8 --user
+/usr/bin/python3 -m pip install -U pylint --user
