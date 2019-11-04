@@ -13,7 +13,7 @@ declare -a EXTENSIONS=(
 function validate() {
     which code
     if [ $? != 0 ]; then
-        echo 'VSCode required - install it first before proceeding'
+        echo "VSCode required - install it first before proceeding"
         exit 1
     fi
 }
