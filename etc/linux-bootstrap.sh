@@ -1,6 +1,5 @@
 # TODO convert this into a modular script instead of just a bunch of random notes
 
-# Add https://github.com/sharkdp/bat to the script too
 
 transmission
 transmission-daemon
@@ -47,8 +46,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 local GO_VERSION="1.13"
 local OS="linux"
 local ARCH="amd64"
-local GO_FILENAME="go$GO_VERSION.$OS-$ARCH.tar.gz"
-wget "https://dl.google.com/go/$GO_FILENAME"
+local GO_FILENAME="go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
+wget "https://dl.google.com/go/${GO_FILENAME}"
 sudo tar -C /usr/local -xzf $GO_FILENAME
 rm $GO_FILENAME
 mkdir $HOME/go
@@ -67,7 +66,7 @@ local tmpdir=$(mktemp -d)
 local cwd=$(pwd)
 cd $tmpdir
 local HUGO_VERSION="0.58.3"
-wget "https://github.com/gohugoio/hugo/releases/download/v$HUGO_VERSION/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
 tar -zxvf "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
 sudo mv -v hugo /usr/local/bin
 hugo version
@@ -81,8 +80,8 @@ sudo apt-get install cryptomator
 
 # ncdu - disk usage analyser
 local NCDU_VERSION="1.14.1"
-local NCDU_FILENAME="ncdu-linux-x86_64-$NCDU_VERSION.tar.gz"
-wget "https://dev.yorhel.nl/download/$NCDU_FILENAME"
+local NCDU_FILENAME="ncdu-linux-x86_64-${NCDU_VERSION}.tar.gz"
+wget "https://dev.yorhel.nl/download/${NCDU_FILENAME}"
 tar -zxvf $NCDU_FILENAME
 sudo mv -v ncdu /usr/local/bin
 ncdu --version
@@ -108,6 +107,16 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-# Python pip stuff
+# Python pip stuff - should loop over this too
 /usr/bin/python3 -m pip install -U autopep8 --user
 /usr/bin/python3 -m pip install -U pylint --user
+
+
+# install bat 
+local BAT_VERSION="0.12.1"
+local BAT_FILENAME="bat_${BAT_VERSION}_amd64.deb"
+wget "https://github.com/sharkdp/bat/releases/download/v0.12.1/${BAT_FILENAME}"
+sudo dpkg -i $BAT_FILENAME
+bat --version
+rm $BAT_FILENAME
+# Remember to set alias cat="bat"
