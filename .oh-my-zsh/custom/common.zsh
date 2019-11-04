@@ -15,6 +15,7 @@ alias mv="mv -v"
 alias cp="cp -Rv"
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
+alias cat="bat"
 
 # zsh aliases
 alias h='history' # an alias that points to omz_history
