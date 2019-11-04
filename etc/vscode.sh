@@ -1,6 +1,6 @@
 #!/bin/bash
 
-local EXTENSIONS=(
+declare -a EXTENSIONS=(
     "ms-vscode.go"
     "pkief.material-icon-theme"
     "equinusocio.vsc-material-theme"
@@ -11,7 +11,7 @@ local EXTENSIONS=(
 )
 
 function validate() {
-    which -s code
+    which code
     if [ $? != 0 ]; then
         echo 'VSCode required - install it first before proceeding'
         exit 1
@@ -19,7 +19,7 @@ function validate() {
 }
 
 function installExts() {
-    for ext in $EXTENSIONS; do
+    for ext in "${EXTENSIONS[@]}"; do
         code --install-extension $ext
     done
 }
