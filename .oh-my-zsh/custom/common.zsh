@@ -16,6 +16,10 @@ alias cp="cp -Rv"
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 alias cat="bat"
+if [[ "$OSTYPE" != "darwin"* ]]; then
+    alias fd="fdfind"
+fi
+
 
 # zsh aliases
 alias h='history' # an alias that points to omz_history
