@@ -5,7 +5,7 @@
 # export PAGER='most'
 
 # Aliases
-alias cl=clear
+alias cl="clear"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias awscf="vi ~/.aws/config"
 alias gpm="git pull origin master"
@@ -24,7 +24,7 @@ fi
 
 
 # zsh aliases
-alias h='history' # an alias that points to omz_history
+alias h="history" # an alias that points to omz_history
 alias -s {yml,yaml}=vim
 alias -g G='| grep -i '
 alias -g P=' | landscape > ~/tmp/plan.out 2>&1; cat ~/tmp/plan.out'
