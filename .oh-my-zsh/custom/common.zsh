@@ -7,8 +7,6 @@
 # Aliases
 alias cl=clear
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-# Macos only...
-#alias rm="trash"
 alias awscf="vi ~/.aws/config"
 alias gpm="git pull origin master"
 alias mv="mv -v"
@@ -16,7 +14,11 @@ alias cp="cp -Rv"
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 alias cat="bat"
-if [[ "$OSTYPE" != "darwin"* ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS specific aliases
+    alias rm="trash"    
+else
+    # Debian / other specific aliases
     alias fd="fdfind"
 fi
 
@@ -106,7 +108,7 @@ function uz {
 
 # Third-party functions
 
-##### fzf ####
+##### fzf #### (https://github.com/junegunn/fzf)
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
