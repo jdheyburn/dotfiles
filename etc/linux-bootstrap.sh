@@ -12,7 +12,8 @@ git
 fzf
 fonts-powerline
 tmux
-npm
+# Commented out in favour of nvm
+# npm
 python3-pip
 tree
 fd-find
@@ -22,7 +23,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 
 sudo apt-get update && sudo apt-get install spotify-client
 
-// zsh setup
+# zsh setup
 chsh -s /usr/bin/zsh 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 code
@@ -121,3 +122,12 @@ sudo dpkg -i $BAT_FILENAME
 bat --version
 rm $BAT_FILENAME
 # Remember to set alias cat="bat"
+
+
+# NVM - node and npm manager
+local NVM_VERSION="0.35.1"
+curl -o- "https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VERSION}/install.sh" | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+nvm install --lts --latest-npm

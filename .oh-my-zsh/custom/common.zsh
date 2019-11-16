@@ -4,6 +4,13 @@
 # Nice man pages - only works on Linux
 # export PAGER='most'
 
+
+# Path Adjustments
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 # Aliases
 alias cl="clear"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
