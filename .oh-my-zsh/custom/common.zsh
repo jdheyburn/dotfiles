@@ -21,6 +21,7 @@ alias cp="cp -Rv"
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
 alias cat="bat"
+alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS specific aliases
     alias rm="trash"    
