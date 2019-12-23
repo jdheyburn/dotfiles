@@ -1,6 +1,12 @@
 # TODO convert this into a modular script instead of just a bunch of random notes
 
+# Etcher - burn images
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 
+# Apt packages
+
+balena-etcher-electron
 transmission
 transmission-daemon
 neovim
