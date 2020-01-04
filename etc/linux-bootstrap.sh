@@ -107,14 +107,16 @@ sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg2 \
+    gnupg-agent \
     software-properties-common
 # TODO check the fingerprint
-curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-# TODO below doesn't work?
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
    $(lsb_release -cs) \
    stable"
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
 
 # Python pip stuff - should loop over this too
 /usr/bin/python3 -m pip install -U autopep8 --user
@@ -138,3 +140,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 nvm install --lts --latest-npm
+
+# Ansible setup
+sudo apt install software-properties-common
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+# TODO pull ansible config from github
