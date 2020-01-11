@@ -117,6 +117,7 @@ sudo add-apt-repository \
    stable"
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
 
 # Python pip stuff - should loop over this too
 /usr/bin/python3 -m pip install -U autopep8 --user
