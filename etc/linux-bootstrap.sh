@@ -147,3 +147,8 @@ sudo apt install software-properties-common
 sudo apt-add-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible
 # TODO pull ansible config from github
+
+# broot - better tree app
+wget "https://dystroy.org/broot/download/x86_64-linux/broot"
+chmod +x broot
+sudo mv -v broot /usr/local/bin/
