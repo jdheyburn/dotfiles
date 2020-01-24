@@ -38,5 +38,6 @@
     "go.lintTool": "golangci-lint",
     "go.lintFlags": [
         "--fast"
-    ]
+    ],
+    "window.titleBarStyle": "custom"
 }

@@ -111,6 +111,6 @@ prompt_context() {}
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 source $HOME/.config/broot/launcher/bash/br
