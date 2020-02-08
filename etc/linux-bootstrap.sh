@@ -152,3 +152,13 @@ sudo apt install ansible
 wget "https://dystroy.org/broot/download/x86_64-linux/broot"
 chmod +x broot
 sudo mv -v broot /usr/local/bin/
+
+
+# Nix insallation
+local NIX_VERSION="2.3.2"
+curl -o "install-nix-$NIX_VERSION" https://nixos.org/nix/install
+curl -o "install-nix-$NIX_VERSION.sig" https://nixos.org/nix/install.sig
+gpg2 --recv-keys B541D55301270E0BCF15CA5D8170B4726D7198DE
+gpg2 --verify "./install-nix-$NIX_VERSION.sig"
+sh "./install-nix-$NIX_VERSION"
+rm install-nix-*
