@@ -70,17 +70,12 @@ github.com/golangci/golangci-lint/cmd/golangci-lint
 
 
 # Hugo
-# TODO check with how go is installed - can we remove the tmpdir?
-local tmpdir=$(mktemp -d)
-local cwd=$(pwd)
-cd $tmpdir
 local HUGO_VERSION="0.58.3"
 wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
-tar -zxvf "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+tar -zxvf "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz" hugo
 sudo mv -v hugo /usr/local/bin
 hugo version
-cd $cwd
-rm -rf $tmpdir
+rm "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
 
 # Cryptomator
 sudo add-apt-repository ppa:sebastian-stenzel/cryptomator
