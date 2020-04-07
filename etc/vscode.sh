@@ -8,6 +8,7 @@ declare -a EXTENSIONS=(
     "CoenraadS.bracket-pair-colorizer"
     "streetsidesoftware.code-spell-checker"
     "ms-python.python"
+    "eamodio.gitlens"
 )
 
 function validate() {
