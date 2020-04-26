@@ -10,6 +10,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Fix history
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+setopt HIST_IGNORE_ALL_DUPS # ignore duplicated commands history list
+setopt SHARE_HISTORY # share command history data
 
 # Aliases
 alias cl="clear"
@@ -18,8 +23,10 @@ alias awscf="vi ~/.aws/config"
 alias gpm="git pull origin master"
 alias mv="mv -v"
 alias cp="cp -Rv"
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
+#alias pbcopy="xclip -selection clipboard"
+#alias pbpaste="xclip -selection clipboard -o"
+alias pbcopy="clipcopy"
+alias pbpaste="clippaste"
 alias cat="bat"
 alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -33,7 +40,7 @@ fi
 
 # zsh aliases
 alias h="history" # an alias that points to omz_history
-alias -s {yml,yaml}=vim
+alias -s {zsh,yml,yaml,txt}=vim
 alias -g G='| grep -i '
 alias -g P=' | landscape > ~/tmp/plan.out 2>&1; cat ~/tmp/plan.out'
 
