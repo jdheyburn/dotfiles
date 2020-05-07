@@ -8,7 +8,11 @@ declare -a EXTENSIONS=(
     "CoenraadS.bracket-pair-colorizer"
     "streetsidesoftware.code-spell-checker"
     "ms-python.python"
+<<<<<<< Updated upstream
     "eamodio.gitlens"
+=======
+    "bbenoist.nix"
+>>>>>>> Stashed changes
 )
 
 function validate() {
@@ -21,7 +25,7 @@ function validate() {
 
 function installExts() {
     for ext in "${EXTENSIONS[@]}"; do
-        code --install-extension $ext
+        code --install-extension $ext --force
     done
 }
 

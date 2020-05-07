@@ -106,11 +106,18 @@ source $ZSH/oh-my-zsh.sh
 # Remove user@hostname from prompt
 prompt_context() {}
 
-# TODO a check for darwin here - should they be in custom common too?
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+<<<<<<< Updated upstream
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 source $HOME/.config/broot/launcher/bash/br
+=======
+if [[ $OSTYPE =~ "darwin*" ]]; then
+  # TODO add darwin settings for GO?
+else
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  export GOROOT=/usr/local/go
+  export PATH=$PATH:/usr/local/go/bin
+fi
+>>>>>>> Stashed changes

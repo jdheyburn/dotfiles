@@ -4,12 +4,12 @@
 # Nice man pages - only works on Linux
 # export PAGER='most'
 
-
+# Code completions
+source <(terraform-docs completion zsh)
 # Path Adjustments
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 
 # Aliases
 alias cl="clear"
@@ -18,8 +18,6 @@ alias awscf="vi ~/.aws/config"
 alias gpm="git pull origin master"
 alias mv="mv -v"
 alias cp="cp -Rv"
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
 alias cat="bat"
 alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -28,6 +26,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 else
     # Debian / other specific aliases
     alias fd="fdfind"
+    # Replicate pbcopy and pbpaste in MacOS
+    alias pbcopy="xclip -selection clipboard"
+    alias pbpaste="xclip -selection clipboard -o"
 fi
 
 
@@ -36,6 +37,16 @@ alias h="history" # an alias that points to omz_history
 alias -s {yml,yaml}=vim
 alias -g G='| grep -i '
 alias -g P=' | landscape > ~/tmp/plan.out 2>&1; cat ~/tmp/plan.out'
+
+# PATHs and things
+## gettext is keg-only, which means it was not symlinked into /usr/local,
+## because macOS provides the BSD gettext library & some software gets confused if both are in the library path.
+if [[ $OSTYPE =~ "darwin*" ]]; then
+    export PATH="/usr/local/opt/gettext/bin:$PATH"
+    ## For compilers to find gettext you may need to set:
+    export LDFLAGS="-L/usr/local/opt/gettext/lib"
+    export CPPFLAGS="-I/usr/local/opt/gettext/include"
+fi
 
 ## Summary of plan - shows affected resources
 alias -g splan='plan | landscape > ~/tmp/plan.out 2>&1; echo "--------------\nPlan Summary\n--------------\n" >> ~/tmp/plan.out; cat ~/tmp/plan.out | egrep "\+ [a-z]|- [a-z]|~ [a-z]|Plan:" >> ~/tmp/plan.out; cat ~/tmp/plan.out'
