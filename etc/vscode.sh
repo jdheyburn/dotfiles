@@ -11,7 +11,7 @@ declare -a EXTENSIONS=(
     "eamodio.gitlens"
     "DavidAnson.vscode-markdownlint"
     "foxundermoon.shell-format"
-)
+    "bbenoist.nix"
 
 function validate() {
     which code
@@ -23,7 +23,7 @@ function validate() {
 
 function installExts() {
     for ext in "${EXTENSIONS[@]}"; do
-        code --install-extension $ext
+        code --install-extension $ext --force
     done
 }
 

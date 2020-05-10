@@ -4,7 +4,8 @@
 # Nice man pages - only works on Linux
 # export PAGER='most'
 
-
+# Code completions
+source <(terraform-docs completion zsh)
 # Path Adjustments
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -25,6 +26,7 @@ alias mv="mv -v"
 alias cp="cp -Rv"
 #alias pbcopy="xclip -selection clipboard"
 #alias pbpaste="xclip -selection clipboard -o"
+# These are from zsh
 alias pbcopy="clipcopy"
 alias pbpaste="clippaste"
 alias cat="bat"
@@ -43,6 +45,16 @@ alias h="history" # an alias that points to omz_history
 alias -s {zsh,yml,yaml,txt}=vim
 alias -g G='| grep -i '
 alias -g P=' | landscape > ~/tmp/plan.out 2>&1; cat ~/tmp/plan.out'
+
+# PATHs and things
+## gettext is keg-only, which means it was not symlinked into /usr/local,
+## because macOS provides the BSD gettext library & some software gets confused if both are in the library path.
+if [[ $OSTYPE =~ "darwin*" ]]; then
+    export PATH="/usr/local/opt/gettext/bin:$PATH"
+    ## For compilers to find gettext you may need to set:
+    export LDFLAGS="-L/usr/local/opt/gettext/lib"
+    export CPPFLAGS="-I/usr/local/opt/gettext/include"
+fi
 
 ## Summary of plan - shows affected resources
 alias -g splan='plan | landscape > ~/tmp/plan.out 2>&1; echo "--------------\nPlan Summary\n--------------\n" >> ~/tmp/plan.out; cat ~/tmp/plan.out | egrep "\+ [a-z]|- [a-z]|~ [a-z]|Plan:" >> ~/tmp/plan.out; cat ~/tmp/plan.out'

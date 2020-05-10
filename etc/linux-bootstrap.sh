@@ -70,7 +70,7 @@ github.com/golangci/golangci-lint/cmd/golangci-lint
 
 
 # Hugo
-local HUGO_VERSION="0.58.3"
+local HUGO_VERSION="0.68.3"
 wget "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
 tar -zxvf "hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz" hugo
 sudo mv -v hugo /usr/local/bin
