@@ -50,7 +50,7 @@ done
 
 # As of 2019-05-23 Terraform 0.12 was released which contains breaking changes
 # tfenv helps us to install previous versions of terraform
-# homebrew doesn't make it easy to do this otherwise 
+# homebrew doesn't make it easy to do this otherwise
 tfenv install 0.11.14
 
 brew install zsh
@@ -75,7 +75,5 @@ rm -rf $tmpdir
 # defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
 # Use plain text mode as default in TextEdit
 defaults write com.apple.TextEdit RichText -int 0
-
-
 
 # bootstrap git too

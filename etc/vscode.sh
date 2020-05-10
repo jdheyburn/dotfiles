@@ -9,6 +9,8 @@ declare -a EXTENSIONS=(
     "streetsidesoftware.code-spell-checker"
     "ms-python.python"
     "eamodio.gitlens"
+    "DavidAnson.vscode-markdownlint"
+    "foxundermoon.shell-format"
 )
 
 function validate() {
