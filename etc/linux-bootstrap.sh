@@ -51,12 +51,12 @@ ln -s ~/dotfiles/vscode/vscode-settings.json ~/.config/Code/User/settings.json
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-# TODO - test the below
-local GO_VERSION="1.13"
+local GO_VERSION="1.14.3"
 local OS="linux"
 local ARCH="amd64"
 local GO_FILENAME="go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
 wget "https://dl.google.com/go/${GO_FILENAME}"
+sudo rm -rf /usr/local/go # Remove existing installation
 sudo tar -C /usr/local -xzf $GO_FILENAME
 rm $GO_FILENAME
 mkdir $HOME/go
@@ -66,7 +66,8 @@ export PATH=$PATH:/usr/local/go/bin
 
 go get -v golang.org/x/tools/gopls
 github.com/golangci/golangci-lint/cmd/golangci-lint
-
+sudo tar -C /usr/local -xzf $GO_FILENAME
+GO111MODULE="on" go get github.com/segmentio/terraform-docs@v0.9.1
 
 
 # Hugo
