@@ -108,11 +108,9 @@ prompt_context() {}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=$HOME/go
-<<<<<<< Updated upstream
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 source $HOME/.config/broot/launcher/bash/br
-=======
 if [[ $OSTYPE =~ "darwin*" ]]; then
   # TODO add darwin settings for GO?
 else
@@ -120,4 +118,3 @@ else
   export GOROOT=/usr/local/go
   export PATH=$PATH:/usr/local/go/bin
 fi
->>>>>>> Stashed changes

@@ -30,12 +30,11 @@ module.exports = {
     fontSize: 13,
 
     // font family with optional fallbacks
-<<<<<<< Updated upstream
+
     fontFamily: '"Meslo LG M DZ for Powerline"',
 //    fontFamily: '"Meslo LG M DZ Regular Nerd Font Complete Mono", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
-=======
+
     fontFamily: '"Meslo LG M DZ for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
->>>>>>> Stashed changes
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
