@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 # global settings
 yabai -m config mouse_follows_focus          off
@@ -21,12 +21,17 @@ yabai -m config mouse_modifier               fn
 yabai -m config mouse_action1                move
 yabai -m config mouse_action2                resize
 
+SPACEBAR_HEIGHT=$(spacebar -m config height)
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  12
+yabai -m config top_padding                  $(expr $SPACEBAR_HEIGHT + 12)
 yabai -m config bottom_padding               12
 yabai -m config left_padding                 12
 yabai -m config right_padding                12
 yabai -m config window_gap                   06
+
+# spacebar
+#SPACEBAR_HEIGHT=$(spacebar -m config height)
+#yabai -m config external_bar all:26:0
 
 echo "yabai configuration loaded.."
