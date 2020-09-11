@@ -51,18 +51,26 @@ ln -s ~/dotfiles/vscode/vscode-settings.json ~/.config/Code/User/settings.json
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-local GO_VERSION="1.14.3"
-local OS="linux"
-local ARCH="amd64"
-local GO_FILENAME="go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
-wget "https://dl.google.com/go/${GO_FILENAME}"
-sudo rm -rf /usr/local/go # Remove existing installation
-sudo tar -C /usr/local -xzf $GO_FILENAME
-rm $GO_FILENAME
-mkdir $HOME/go
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$PATH:/usr/local/go/bin
+# Use gvm to manage Go versions
+# Below are Debian dependencies
+sudo apt-get install curl git mercurial make binutils bison gcc build-essential -y
+local GO_VERSION="1.15.2"
+zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+source $HOME/.gvm/scripts/gvm
+gvm install $GO_VERSION
+gvm use $GO_VERSION
+
+# local OS="linux"
+# local ARCH="amd64"
+# local GO_FILENAME="go${GO_VERSION}.${OS}-${ARCH}.tar.gz"
+# wget "https://dl.google.com/go/${GO_FILENAME}"
+# sudo rm -rf /usr/local/go # Remove existing installation
+# sudo tar -C /usr/local -xzf $GO_FILENAME
+# rm $GO_FILENAME
+# mkdir $HOME/go
+# export GOROOT=/usr/local/go
+# export GOPATH=$HOME/go
+# export PATH=$PATH:/usr/local/go/bin
 
 go get -v golang.org/x/tools/gopls
 github.com/golangci/golangci-lint/cmd/golangci-lint
