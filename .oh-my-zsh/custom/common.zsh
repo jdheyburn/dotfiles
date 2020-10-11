@@ -29,16 +29,19 @@ alias cp="cp -Rv"
 # These are from zsh
 alias pbcopy="clipcopy"
 alias pbpaste="clippaste"
-alias cat="bat"
+
 alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS specific aliases
     alias rm="trash"    
+    BATCAT_CMD="bat"
 else
     # Debian / other specific aliases
     alias fd="fdfind"
+    BATCAT_CMD="batcat"
 fi
 
+alias cat=$BATCAT_CMD
 
 # zsh aliases
 alias h="history" # an alias that points to omz_history

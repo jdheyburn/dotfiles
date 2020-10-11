@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Remove user@hostname from prompt
-prompt_context() {}
+#prompt_context() {}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export GOPATH=$HOME/go
@@ -118,3 +118,5 @@ else
   export GOROOT=/usr/local/go
   export PATH=$PATH:/usr/local/go/bin
 fi
+
+[[ -s "/home/jdheyburn/.gvm/scripts/gvm" ]] && source "/home/jdheyburn/.gvm/scripts/gvm"

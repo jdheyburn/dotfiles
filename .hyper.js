@@ -27,14 +27,15 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 12,
 
     // font family with optional fallbacks
 
-    fontFamily: '"Meslo LG M DZ for Powerline"',
+   // fontFamily: '"Meslo LG M DZ for Powerline"',
 //    fontFamily: '"Meslo LG M DZ Regular Nerd Font Complete Mono", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
-    fontFamily: '"Meslo LG M DZ for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"Roboto Mono for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    //fontFamily: '"Meslo LG M DZ for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'
     fontWeight: 'normal',
