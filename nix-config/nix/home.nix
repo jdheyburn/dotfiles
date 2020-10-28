@@ -38,8 +38,6 @@
     wget
 
     (callPackage ./nvim {})
-
-
   ];
 
   home.sessionVariables = {
