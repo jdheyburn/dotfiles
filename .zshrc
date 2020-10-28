@@ -120,3 +120,4 @@ else
 fi
 
 [[ -s "/home/jdheyburn/.gvm/scripts/gvm" ]] && source "/home/jdheyburn/.gvm/scripts/gvm"
+if [ -e /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
