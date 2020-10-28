@@ -30,10 +30,10 @@
     niv
 
     # Basic
-    fzf
-    htop
-    jq
-    ncdu
+    fzf     # fuzzy finder - cmd history search
+    htop    # interactive process viewer
+    jq      # json parser
+    ncdu    # file browser
     unzip
     wget
 
