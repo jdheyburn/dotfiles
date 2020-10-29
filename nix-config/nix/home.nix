@@ -49,8 +49,6 @@
     terraform-docs
 
     (callPackage ./nvim {})
-
-
   ];
 
   home.sessionVariables = {
