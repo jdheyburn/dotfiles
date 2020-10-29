@@ -30,12 +30,23 @@
     niv
 
     # Basic
+    duf
     fzf     # fuzzy finder - cmd history search
     htop    # interactive process viewer
     jq      # json parser
     ncdu    # file browser
+    pwgen
+    tldr
     unzip
     wget
+
+    # Applications
+    git
+    go
+    hugo
+    shellcheck
+    tfenv
+    terraform-docs
 
     (callPackage ./nvim {})
 
