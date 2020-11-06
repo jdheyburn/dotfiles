@@ -106,7 +106,13 @@ source $ZSH/oh-my-zsh.sh
 # Remove user@hostname from prompt
 #prompt_context() {}
 
+# fzf bindings, first for standard installation, then for Nix
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
+
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 

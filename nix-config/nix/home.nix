@@ -35,17 +35,19 @@
     htop    # interactive process viewer
     jq      # json parser
     ncdu    # file browser
-    pwgen
-    tldr
+    pwgen   # generate passwords
+    tldr    # helpful command to show examples
+    tmux    # split terminal panes
     unzip
     wget
 
     # Applications
+    _1password-gui
     git
     go
     hugo
     shellcheck
-    tfenv
+    terraform
     terraform-docs
 
     (callPackage ./nvim {})
