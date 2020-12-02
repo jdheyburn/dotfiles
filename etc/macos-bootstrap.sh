@@ -41,12 +41,33 @@ function installPowerlineFonts() {
     rm -rf $tmpdir
 }
 
+function hammerspoon() {
+    echo "Downloading packages for hammerspoon"
+    local cwd=$(pwd)
+    local tmpdir=$(mktemp -d)
+    cd $tmpdir
+    wget https://github.com/miromannino/miro-windows-manager/raw/master/MiroWindowsManager.spoon.zip
+    unzip MiroWindowsManager.spoon.zip
+    mkdir -p $HOME/.hammerspoon/Spoons
+    rm -rf $HOME/.hammerspoon/Spoons/MiroWindowsManager.spoon
+    mv MiroWindowsManager.spoon $HOME/.hammerspoon/Spoons
+    cd $cwd
+    rm -rf $tmpdir
+
+    local target="$HOME/dotfiles/.hammerspoon/init.lua"
+    local source="$HOME/.hammerspoon/init.lua"
+    echo "Adding symlink from $source to $target"
+    ln -sf $target $source   
+}
+
 function main() {
     validate
 
     installPowerlineFonts
 
     installBrewPkgs
+
+    hammerspoon
 }
 
 main $@

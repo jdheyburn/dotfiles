@@ -33,6 +33,7 @@ cask "notion"
 cask "postman"
 cask "spotify"
 cask "visual-studio-code"
+cask "hammerspoon"
 
 # Old stuff but keeping for history
 #brew "python"
