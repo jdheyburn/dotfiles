@@ -36,8 +36,7 @@ function installPowerlineFonts() {
     local tmpdir=$(mktemp -d)
     cd $tmpdir
     git clone https://github.com/powerline/fonts.git --depth=1
-    cd fonts
-    ./install.sh
+    fonts/install.sh
     cd $cwd
     rm -rf $tmpdir
 }
