@@ -1,3 +1,5 @@
+set termguicolors
+
 " TODO comment each option and say what they're doing
 
 " Plugins now governed by nix
@@ -12,9 +14,9 @@
 set laststatus=2
 set noshowmode
 
-"let g:lightline = {
-"      \ 'colorscheme': 'Tomorrow_Night',
-"      \ }
+let g:lightline = {
+      \ 'colorscheme': 'Tomorrow_Night',
+      \ }
 
 " -------------------------
 " Various Vim options

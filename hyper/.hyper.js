@@ -32,9 +32,10 @@ module.exports = {
     // font family with optional fallbacks
 
    // fontFamily: '"Meslo LG M DZ for Powerline"',
-//    fontFamily: '"Meslo LG M DZ Regular Nerd Font Complete Mono", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+    //fontFamily: '"MesloLGMDZ Nerd Font Mono", Consolas, "Lucida Console", monospace',
+    fontFamily: '"MesloLGMDZ Nerd Font", Consolas, "Lucida Console", monospace',
 
-    fontFamily: '"Roboto Mono for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+//    fontFamily: '"Roboto Mono for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
     //fontFamily: '"Meslo LG M DZ for Powerline", "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
 
     // default font weight: 'normal' or 'bold'

@@ -12,10 +12,11 @@ declare -a EXTENSIONS=(
     "DavidAnson.vscode-markdownlint"
     "foxundermoon.shell-format"
     "bbenoist.nix"
+    "dunstontc.viml"
+)
 
 function validate() {
-    which code
-    if [ $? != 0 ]; then
+    if ! which -s code; then
         echo "VSCode required - install it first before proceeding"
         exit 1
     fi
@@ -27,10 +28,26 @@ function installExts() {
     done
 }
 
+function setConfig() {
+    if [[ $OSTYPE =~ "darwin*" ]]; then
+        local settingsPath="$HOME/Library/Application Support/Code/User"
+    else
+        local settingsPath="$HOME/.config/Code/User"
+    fi
+
+    mkdir -p $settingsPath
+
+    ln -s "$HOME/dotfiles/vscode/vscode-settings.json" "$settingsPath/settings.json"
+}
+
 function main() {
     validate
 
     installExts
+
+    setConfig
+
+    echo "vscode setup done - you may need to restart vscode for changes to be in effect"
 }
 
 main $@

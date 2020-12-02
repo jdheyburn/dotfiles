@@ -1,5 +1,5 @@
 # Common aliases and functions with my personal setup
-# Should not contain anything firm-specific 
+# Should not contain anything firm-specific
 
 # Nice man pages - only works on Linux
 # export PAGER='most'
@@ -8,20 +8,20 @@
 source <(terraform-docs completion zsh)
 # Path Adjustments
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # Fix history
 export HISTSIZE=10000000
 export SAVEHIST=10000000
 setopt HIST_IGNORE_ALL_DUPS # ignore duplicated commands history list
-setopt SHARE_HISTORY # share command history data
+setopt SHARE_HISTORY        # share command history data
 
 # Aliases
 alias cl="clear"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias awscf="vi ~/.aws/config"
-alias gpm="git pull origin master"
+alias gpm="git pull origin $(git_main_branch)"
 alias mv="mv -v"
 alias cp="cp -Rv"
 #alias pbcopy="xclip -selection clipboard"
@@ -30,10 +30,13 @@ alias cp="cp -Rv"
 alias pbcopy="clipcopy"
 alias pbpaste="clippaste"
 
+alias vim="nvim"
+alias vi="nvim"
+
 alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # macOS specific aliases
-    alias rm="trash"    
+    alias rm="trash"
     BATCAT_CMD="bat"
 else
     # Debian / other specific aliases
@@ -63,38 +66,38 @@ fi
 alias -g splan='plan | landscape > ~/tmp/plan.out 2>&1; echo "--------------\nPlan Summary\n--------------\n" >> ~/tmp/plan.out; cat ~/tmp/plan.out | egrep "\+ [a-z]|- [a-z]|~ [a-z]|Plan:" >> ~/tmp/plan.out; cat ~/tmp/plan.out'
 
 # outputs target changes from plan
-function pgrep {
- egrep "$1" | cut -d " " -f2 ;
+function pgrep() {
+    egrep "$1" | cut -d " " -f2
 }
 
 # Functions
 # MakeChangedir - takes in a dir to create and then cd into
-function mc {
+function mc() {
     local dir=$1
     if [ -z "$dir" ]; then
         echo "mc - No dir was provided"
         return 1
     fi
-    
+
     mkdir -p "$dir"
     cd "$dir"
 }
 
 # ConfigCommitPush - takes in a commit message for the config update and pushes to Bitbucket
 #   - config is an alias defined above
-function confcp {
+function confcp() {
     local commitMsg=$1
     if [ -z "$commitMsg" ]; then
         echo "confcp - No commit message was provided"
         return 1
     fi
-    
+
     config commit -m "$commitMsg"
     config push
 }
 
 # SearchDirectory - recursive search through the targeted dir for the text in any file
-function sd {
+function sd() {
     local searchTerm=$1
     local searchDir=$2
     if [ -z "$searchTerm" ]; then
@@ -105,7 +108,7 @@ function sd {
         echo "sd - No dir specified - defaulting to current dir"
         searchDir="."
     fi
-    
+
     grep --ignore-case --files-with-matches --recursive --no-messages --exclude-dir=".terraform" $searchTerm $searchDir
 }
 
@@ -115,7 +118,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     readlinkCmd="greadlink"
 fi
 
-function uz {
+function uz() {
     local archive=$1
     if [ -z "$archive" ]; then
         echo "uz - No archive specified"
@@ -145,11 +148,10 @@ function uz {
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 function _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+    fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 function _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+    fd --type d --hidden --follow --exclude ".git" . "$1"
 }
-

@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 
 # fzf bindings, first for standard installation, then for Nix
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-if [ -n "${commands[fzf-share]}" ]; then
+if [ -n "${commands[fzf - share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
@@ -116,14 +116,15 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
-source $HOME/.config/broot/launcher/bash/br
+[ -f $HOME/.config/broot/launcher/bash/br ] && source $HOME/.config/broot/launcher/bash/br
+
 if [[ $OSTYPE =~ "darwin*" ]]; then
   # TODO add darwin settings for GO?
 else
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
   export GOROOT=/usr/local/go
   export PATH=$PATH:/usr/local/go/bin
 fi
 
-[[ -s "/home/jdheyburn/.gvm/scripts/gvm" ]] && source "/home/jdheyburn/.gvm/scripts/gvm"
-if [ -e /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+[ -s "$HOME/.gvm/scripts/gvm" ] && source "$HOME/.gvm/scripts/gvm"
+[ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh || true # added by Nix installer

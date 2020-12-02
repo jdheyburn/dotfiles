@@ -4,7 +4,7 @@
   "workbench.colorTheme": "Material Theme",
   "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+  "terminal.integrated.fontFamily": "'Meslo LG M DZ for Powerline', monospace",
   "terminal.integrated.copyOnSelection": true,
   "editor.formatOnSave": true,
   "window.zoomLevel": 0,
@@ -34,7 +34,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
   "go.lintTool": "golangci-lint",
   "go.lintFlags": ["--fast"],
   "window.titleBarStyle": "custom",
