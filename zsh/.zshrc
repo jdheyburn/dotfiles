@@ -75,6 +75,14 @@ plugins=(
   colored-man-pages
 )
 
+# brew autocomplete - https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -124,6 +132,12 @@ else
   [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
   export GOROOT=/usr/local/go
   export PATH=$PATH:/usr/local/go/bin
+fi
+
+if type brew &>/dev/null; then
+  if brew --prefix asdf &>/dev/null; then
+    source $(brew --prefix asdf)/asdf.sh
+  fi
 fi
 
 [ -s "$HOME/.gvm/scripts/gvm" ] && source "$HOME/.gvm/scripts/gvm"

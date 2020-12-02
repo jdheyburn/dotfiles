@@ -13,6 +13,7 @@ declare -a EXTENSIONS=(
     "foxundermoon.shell-format"
     "bbenoist.nix"
     "dunstontc.viml"
+    "hashicorp.terraform"
 )
 
 function validate() {

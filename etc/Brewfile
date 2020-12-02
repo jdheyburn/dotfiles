@@ -25,6 +25,8 @@ brew "tree"
 brew "vault"
 brew "wget"
 brew "zsh"
+brew "asdf"
+
 cask "1password"
 cask "alfred"
 cask "firefox"
