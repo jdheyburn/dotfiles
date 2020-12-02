@@ -36,8 +36,9 @@ function setConfig() {
     fi
 
     mkdir -p $settingsPath
-
-    ln -s "$HOME/dotfiles/vscode/vscode-settings.json" "$settingsPath/settings.json"
+    # In case of existing file
+    mv -f "$settingsPath/settings.json" "$settingsPath/settings_bak.json"
+    ln -sf "$HOME/dotfiles/vscode/vscode-settings.json" "$settingsPath/settings.json"
 }
 
 function main() {
