@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/core"
+tap "homebrew/core".
+
 brew "awscli"
 brew "azure-cli"
 brew "bat"
@@ -26,6 +27,8 @@ brew "vault"
 brew "wget"
 brew "zsh"
 brew "asdf"
+brew "coreutils"
+brew "tmux"
 
 cask "1password"
 cask "alfred"
@@ -36,6 +39,7 @@ cask "postman"
 cask "spotify"
 cask "visual-studio-code"
 cask "hammerspoon"
+cask "ticktick"
 
 # Old stuff but keeping for history
 #brew "python"
