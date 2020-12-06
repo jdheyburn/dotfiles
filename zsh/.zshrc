@@ -140,5 +140,14 @@ if type brew &>/dev/null; then
   fi
 fi
 
+if type rbenv &>/dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+if type pyenv &>/dev/null; then
+  eval "$(pyenv init -)"
+  export PATH=$HOME/.pyenv/shims:$PATH
+fi
+
 [ -s "$HOME/.gvm/scripts/gvm" ] && source "$HOME/.gvm/scripts/gvm"
 [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ] && source $HOME/.nix-profile/etc/profile.d/nix.sh || true # added by Nix installer

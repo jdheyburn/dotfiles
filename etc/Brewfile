@@ -1,6 +1,6 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
-tap "homebrew/core".
+tap "homebrew/core"
 
 brew "awscli"
 brew "azure-cli"
@@ -29,6 +29,9 @@ brew "zsh"
 brew "asdf"
 brew "coreutils"
 brew "tmux"
+brew "rbenv"
+brew "pyenv"
+
 
 cask "1password"
 cask "alfred"

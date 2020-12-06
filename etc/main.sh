@@ -16,6 +16,8 @@ function main() {
     else
         bash linux-bootstrap.sh
     fi
+
+    bash golang.sh
 }
 
 main $@

@@ -14,6 +14,7 @@ declare -a EXTENSIONS=(
     "bbenoist.nix"
     "dunstontc.viml"
     "hashicorp.terraform"
+    "golang.go"
 )
 
 function validate() {
