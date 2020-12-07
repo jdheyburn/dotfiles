@@ -32,6 +32,7 @@ brew "tmux"
 brew "rbenv"
 brew "pyenv"
 brew "gh"
+brew "bash"
 
 
 cask "1password"

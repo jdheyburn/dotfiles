@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Some settings for iterm2 config, will probably need to make sure we've checked this out first
 # Specify the preferences directory
@@ -57,7 +57,7 @@ function hammerspoon() {
     local target="$HOME/dotfiles/.hammerspoon/init.lua"
     local source="$HOME/.hammerspoon/init.lua"
     echo "Adding symlink from $source to $target"
-    ln -sf $target $source   
+    ln -sf $target $source
 }
 
 function fzfSetup() {

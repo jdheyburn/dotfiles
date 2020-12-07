@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Main entrypoint for a *nix system, should handle both macOS and Linux
 

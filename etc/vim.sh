@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function setup() {
     mkdir -p $HOME/.config/nvim

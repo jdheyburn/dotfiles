@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function oh_my_zsh_setup() {
     echo "Installing oh-my-zsh"
@@ -16,7 +16,7 @@ function oh_my_zsh_setup() {
 }
 
 function validate() {
-    if ! which zsh; then
+    if ! which -s zsh; then
         echo "zsh not found, skipping execution of $0"
         exit 1
     fi
