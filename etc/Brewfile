@@ -31,6 +31,7 @@ brew "coreutils"
 brew "tmux"
 brew "rbenv"
 brew "pyenv"
+brew "gh"
 
 
 cask "1password"
@@ -43,6 +44,7 @@ cask "spotify"
 cask "visual-studio-code"
 cask "hammerspoon"
 cask "ticktick"
+cask "google-backup-and-sync"
 
 # Old stuff but keeping for history
 #brew "python"

@@ -60,12 +60,18 @@ function hammerspoon() {
     ln -sf $target $source   
 }
 
+function fzfSetup() {
+    $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc
+}
+
 function main() {
     validate
 
     installPowerlineFonts
 
     installBrewPkgs
+
+    fzfSetup
 
     hammerspoon
 }
