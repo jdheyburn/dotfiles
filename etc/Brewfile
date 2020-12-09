@@ -33,7 +33,7 @@ brew "rbenv"
 brew "pyenv"
 brew "gh"
 brew "bash"
-
+brew "blueutil"
 
 cask "1password"
 cask "alfred"
