@@ -35,15 +35,15 @@ set expandtab
 
 set backupcopy=yes
 
-if empty(glob('~/.vim/.backup'))
-    silent !mkdir -p ~/.vim/.backup
+if empty(glob('~/.nvim/.backup'))
+    silent !mkdir -p ~/.nvim/.backup
 endif
-set backupdir=~/.vim/.backup//
+set backupdir=~/.nvim/.backup//
 
-if empty(glob('~/.vim/.swp'))
-    silent !mkdir -p ~/.vim/.swp
+if empty(glob('~/.nvim/.swp'))
+    silent !mkdir -p ~/.nvim/.swp
 endif
-set directory=~/.vim/.swp//
+set directory=~/.nvim/.swp//
 
 set hidden
 set lazyredraw
@@ -58,10 +58,10 @@ set splitright
 set switchbuf=useopen,usetab
 
 " Record undo history 
-if empty(glob('~/.vim/.undodir'))
-    silent !mkdir -p ~/.vim/.undodir
+if empty(glob('~/.nvim/.undodir'))
+    silent !mkdir -p ~/.nvim/.undodir
 endif
-set undodir=~/.vim/.undodir//
+set undodir=~/.nvim/.undodir//
 set undofile
 
 " Length of time in ms Vim waits after you stop typing before swap file is written to disk
@@ -73,7 +73,7 @@ set updatetime=750
 "  :20  :  up to 20 lines of command-line history will be remembered
 "  %    :  saves and restores the buffer list
 "  n... :  where to save the viminfo files
-set viminfo='10,\"100,:20,%,n~/.vim/.viminfo
+set viminfo='10,\"100,:20,%,n~/.nvim/.viminfo
 
 set number
 highlight LineNr ctermfg=grey
