@@ -15,6 +15,7 @@ declare -a EXTENSIONS=(
     "dunstontc.viml"
     "hashicorp.terraform"
     "golang.go"
+    "ms-azuretools.vscode-docker"
 )
 
 function validate() {

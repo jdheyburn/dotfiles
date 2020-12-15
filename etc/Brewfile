@@ -46,6 +46,9 @@ cask "visual-studio-code"
 cask "hammerspoon"
 cask "ticktick"
 cask "google-backup-and-sync"
+cask "docker"
+cask "dbeaver-community"
+cask "adoptopenjdk" # Required by dbeaver-community
 
 # Old stuff but keeping for history
 #brew "python"

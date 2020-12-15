@@ -39,5 +39,11 @@
   "window.titleBarStyle": "custom",
   "diffEditor.ignoreTrimWhitespace": false,
   "explorer.confirmDelete": false,
-  "go.generateTestsFlags": ["-template_dir=/home/jdheyburn/.vscode/gotests"]
+  "go.generateTestsFlags": [
+    "-template_dir=/Users/joseph.heyburn/.vscode/gotests/templates"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false
 }
