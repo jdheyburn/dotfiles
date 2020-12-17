@@ -72,6 +72,7 @@ function pgrep() {
 
 # Functions
 # GitCommitMsg - adds the JIRA ticketed branch named to the commit message
+unalias gcmsg
 function gcmsg() {
     local msg=$1
     if [ -z "$msg" ]; then
