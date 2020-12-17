@@ -71,11 +71,28 @@ function pgrep() {
 }
 
 # Functions
-# MakeChangedir - takes in a dir to create and then cd into
+# GitCommitMsg - adds the JIRA ticketed branch named to the commit message
+function gcmsg() {
+    local msg=$1
+    if [ -z "$msg" ]; then
+        echo "gcmsg - no message was provided"
+        return 1
+    fi
+    
+    local curr_branch=$(git_current_branch)
+    local regex="^[A-Z]{3,}\-[0-9]+$"
+    if [[ $curr_branch =~ $regex ]]; then
+        local msg="$curr_branch - $msg"
+    fi
+
+    git commit -m "$msg"
+}
+
+# makechangedir - takes in a dir to create and then cd into
 function mc() {
     local dir=$1
     if [ -z "$dir" ]; then
-        echo "mc - No dir was provided"
+        echo "mc - no dir was provided"
         return 1
     fi
 
