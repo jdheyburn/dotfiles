@@ -74,16 +74,19 @@ function pgrep() {
 # GitCommitMsg - adds the JIRA ticketed branch named to the commit message
 unalias gcmsg
 function gcmsg() {
+    setopt local_options BASH_REMATCH
+
     local msg=$@
     if [ -z "$msg" ]; then
         echo "gcmsg - no message was provided"
         return 1
     fi
-    
+
     local curr_branch=$(git_current_branch)
     local regex="^[A-Z]{3,}\-[0-9]+"
     if [[ $curr_branch =~ $regex ]]; then
-        local msg="$curr_branch - $msg"
+        local ticket="${BASH_REMATCH[1]}"
+        local msg="$ticket - $msg"
     fi
 
     git commit -m "$msg"
