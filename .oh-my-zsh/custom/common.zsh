@@ -81,7 +81,7 @@ function gcmsg() {
     fi
     
     local curr_branch=$(git_current_branch)
-    local regex="^[A-Z]{3,}\-[0-9]+$"
+    local regex="^[A-Z]{3,}\-[0-9]+"
     if [[ $curr_branch =~ $regex ]]; then
         local msg="$curr_branch - $msg"
     fi
