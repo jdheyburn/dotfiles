@@ -74,7 +74,7 @@ function pgrep() {
 # GitCommitMsg - adds the JIRA ticketed branch named to the commit message
 unalias gcmsg
 function gcmsg() {
-    local msg=$1
+    local msg=$@
     if [ -z "$msg" ]; then
         echo "gcmsg - no message was provided"
         return 1
