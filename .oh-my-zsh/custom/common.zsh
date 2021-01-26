@@ -83,7 +83,7 @@ function gcmsg() {
     fi
 
     local curr_branch=$(git_current_branch)
-    local regex="^[A-Z]{3,}\-[0-9]+"
+    local regex="^[A-Z]{2,}\-[0-9]+"
     if [[ $curr_branch =~ $regex ]]; then
         local ticket="${BASH_REMATCH[1]}"
         local msg="$ticket - $msg"
