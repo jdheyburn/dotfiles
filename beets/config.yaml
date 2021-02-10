@@ -1,0 +1,19 @@
+directory: ~/Music/new
+library: ~/Music/musiclibrary.db
+plugins: discogs inline bandcamp info badfiles missing embedart fetchart
+paths:
+    default: $albumartist/$album%aunique{}/%if{$multidisc,CD$disc/}$track $artist - $title
+    comp: Compilations/$album%aunique{}/%if{$multidisc,CD$disc/}$track $artist - $title
+item_fields:
+    multidisc: 1 if disctotal > 1 else 0
+musicbrainz:
+    host: localhost:6000
+match:
+    preferred:
+        media: ['CD']
+        original_year: yes
+fetchart: 
+    cover_names: cover
+    minwidth: 500
+    store_source: yes
+
