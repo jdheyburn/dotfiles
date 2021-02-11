@@ -5,6 +5,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "'Meslo LG M DZ for Powerline', monospace",
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.copyOnSelection": true,
   "editor.formatOnSave": true,
   "window.zoomLevel": 0,
@@ -47,5 +48,6 @@
   },
   "explorer.confirmDragAndDrop": false,
   "workbench.editorAssociations": [],
-  "python.showStartPage": false
+  "python.showStartPage": false,
+  "workbench.editor.showTabs": false
 }

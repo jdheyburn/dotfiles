@@ -27,7 +27,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 14,
 
     // font family with optional fallbacks
 
@@ -177,7 +177,7 @@ module.exports = {
     // "hyper-material-theme",
     "hyper-snazzy",
     // "hyper-materialshell",
-//    "hyperline"
+   "hyperline"
   ],
 
   // in development, you can create a directory under

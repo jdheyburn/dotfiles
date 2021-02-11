@@ -65,3 +65,5 @@ set viminfo='10,\"100,:20,%,n~/.vim/.viminfo
 set number
 highlight LineNr ctermfg=grey
 
+set cursorline
+

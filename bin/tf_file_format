@@ -1,0 +1,65 @@
+#!/bin/bash
+
+TAIL=' \c'
+END_TAIL='\c'
+function help {
+    options="Script to extract all resources files into targets
+    -n/--newline: by default all targets are space separated, this will output with newlines"
+            echo "$options"
+}
+
+if [[ $# = 0 ]]; then
+    help
+fi
+
+ARGS=()
+for i in "$@"
+do
+    case $i in
+        -n|--newline)
+            TAIL=' \\'
+            END_TAIL=''
+            ;;
+        -h|--help)
+            help
+            exit 0
+            ;;
+        *)
+            ARGS+=("$i")
+            ;;
+    esac
+done
+
+function join_by {
+    local d=$1;
+    shift;
+    local f=$1;
+    shift;
+    printf %s "$f" "${@/#/$d}";
+}
+
+get_resources(){
+    RESOURCES=`egrep 'resource "|module "' $1 | egrep -v '^ *#' | sed 's#" {##' | sed 's#module "#module.#' | sed 's#resource "##' | sed 's#" "#.#'`
+    for r in $RESOURCES; do
+        echo -e "--target ${r}${TAIL}";
+    done
+}
+files_resources() {
+    for arg in "$@"
+    do
+        if [[ -d $arg ]]; then
+            # echo "$arg is a directory"
+            FILES=`find $arg -type f -name '*.tf'`
+            files_resources $FILES
+        elif [[ -f $arg ]]; then
+            # echo "$arg is a file"
+            get_resources $arg
+        else
+            echo "$arg is not valid" >&2
+        fi
+    done
+}
+# echo "Result ${ARGS[@]}"
+GLOB_RESOURCES=$(files_resources "${ARGS[@]}")
+echo -e "${GLOB_RESOURCES}${END_TAIL}"
+
