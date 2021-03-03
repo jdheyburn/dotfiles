@@ -49,5 +49,5 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.editorAssociations": [],
   "python.showStartPage": false,
-  "workbench.editor.showTabs": false
+  "workbench.editor.showTabs": true
 }
