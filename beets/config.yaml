@@ -1,12 +1,12 @@
 plugins: edit discogs inline info badfiles missing embedart fetchart #beatport #bandcamp
 
 # Where to store the imported music files, and the db location for tracking
-directory: ~/Music/new
-library: ~/Music/musiclibrary.db
+directory: /mnt/nfs/Backup/media/music
+library: /mnt/nfs/Backup/media/beets-music.db
 
 import:
-   move: yes
-   copy: no
+   move: no
+   copy: yes
    timid: yes
 
 
