@@ -1,14 +1,12 @@
 plugins: edit discogs inline info badfiles missing embedart fetchart #bandcamp #beatport 
 
 # Where to store the imported music files, and the db location for tracking
-# TODO change back once import is cmplete
-directory: ~/Music/vinyl_new # /mnt/nfs/Backup/media/lossless
-#library: /mnt/nfs/Backup/media/beets-lossless.db
-library: ~/Music/vinyl.db
+directory: /mnt/nfs/Backup/media/vinyl
+library: /mnt/nfs/Backup/media/beets-vinyl.db
 
 import:
-   move: yes
-   copy: no
+   move: no
+   copy: yes
    timid: yes
 
 
