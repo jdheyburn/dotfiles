@@ -2,7 +2,7 @@ plugins: edit discogs inline info badfiles missing embedart fetchart #bandcamp #
 
 # Where to store the imported music files, and the db location for tracking
 directory: /mnt/nfs/Backup/media/vinyl
-library: /mnt/nfs/Backup/media/beets-vinyl.db
+library: /mnt/nfs/Backup/media/beets-db/beets-vinyl.db
 
 import:
    move: no
