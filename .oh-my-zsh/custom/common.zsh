@@ -59,6 +59,9 @@ if [[ $OSTYPE =~ "darwin*" ]]; then
     export CPPFLAGS="-I/usr/local/opt/gettext/include"
 fi
 
+# Additional binaries that may exist in dotfiles repo
+export PATH=$HOME/dotfiles/bin:$PATH
+
 ## Summary of plan - shows affected resources
 alias -g splan='plan | landscape > ~/tmp/plan.out 2>&1; echo "--------------\nPlan Summary\n--------------\n" >> ~/tmp/plan.out; cat ~/tmp/plan.out | egrep "\+ [a-z]|- [a-z]|~ [a-z]|Plan:" >> ~/tmp/plan.out; cat ~/tmp/plan.out'
 
