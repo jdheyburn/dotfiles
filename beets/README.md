@@ -44,3 +44,14 @@ python3 -m venv .venv
 ```
 
 If `$HOME/dotfiles/bin` is on the `$PATH` then simply running `beet` will verify it.
+
+## Other beets notes
+
+- Three different libraries to manage (music/lossless/vinyl) is overkill; maybe something like these can help group together in one db:
+  - There may be features [already existing](https://github.com/beetbox/beets/issues/2316) using custom fields (or file format lookup) to group them different in `paths`
+    - https://beets.readthedocs.io/en/v1.4.9/guides/advanced.html#choose-a-path-style-manually-for-some-music
+  - Something [in development](https://github.com/beetbox/beets/issues/1640)
+- Attempted to do a convert on import but couldn't get it to copy album arts at the same time
+  - `config-music-convert.yaml` shows an attempt at this
+  - seems `convert` plugin is better as copying existing tracks in library out to another format
+  

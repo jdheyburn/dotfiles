@@ -1,0 +1,65 @@
+plugins: convert edit discogs inline info badfiles missing embedart fetchart bandcamp #beatport
+
+# Where to store the imported music files, and the db location for tracking
+directory: /home/jdheyburn/Music/convert-test/db
+library: /home/jdheyburn/Music/convert-test/musiclibrary.db
+
+import:
+  move: no
+  copy: yes
+  timid: yes
+
+# How to store the files in directory
+paths:
+  default: $albumartist/$album%aunique{}/%if{$multidisc,CD$disc/}$track $artist - $title
+  comp: Compilations/$album%aunique{}/%if{$multidisc,CD$disc/}$track $artist - $title
+  singleton: Singles/$artist - $title
+
+# Custom fields we can refer to in paths
+# multidisc - if album has more than one CD then group by that CD within the album
+item_fields:
+  multidisc: 1 if disctotal > 1 and media == 'CD' else 0
+
+#match:
+#    preferred:
+#media: ['CD']
+
+# Newer released media should use the original year it was released
+original_date: yes
+
+# Speedy
+threaded: yes
+
+fetchart:
+  cover_names: cover
+  minwidth: 500
+  store_source: yes
+  sources:
+    - filesystem
+
+embedart:
+  auto: yes
+  ifempty: yes
+
+# Disable musicbrainz
+#musicbrainz:
+#    host: localhost:6000
+
+# convert on import
+convert:
+  # The name of the format to transcode to when none is specified on the command line.
+  auto: yes
+  dest: /home/jdheyburn/Music
+  copy_album_art: yes
+  format: mp3_320
+  formats:
+    mp3_320:
+      command: ffmpeg -i $source -y -vcodec copy -acodec mp3 -b:a 320k $dest
+      extension: mp3
+    alac:
+      command: ffmpeg -i $source -y -vcodec copy -acodec alac $dest
+      extension: m4a
+
+copyartifacts:
+  extensions: .jpg .jpeg .png
+  print_ignored: yes
