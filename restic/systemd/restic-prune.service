@@ -1,0 +1,7 @@
+[Unit]
+Description=Restic backup service (data pruning)
+
+[Service]
+Type=oneshot
+ExecStart=restic prune
+EnvironmentFile=/home/restic/restic-backup.conf
