@@ -1,0 +1,10 @@
+
+# This should be invoked after restic has done doing the daily backup
+
+[Unit]
+Description=Rclone backup everything service
+After=restic-all.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/jdheyburn/dotfiles/restic/rclone-all.sh

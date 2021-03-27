@@ -1,0 +1,7 @@
+
+[Unit]
+Description=Restic backup everything service
+
+[Service]
+Type=oneshot
+ExecStart=/home/jdheyburn/dotfiles/restic/restic-all.sh
