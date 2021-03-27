@@ -4,7 +4,7 @@ Description=Restic backup everything service
 
 [Service]
 Type=oneshot
-ExecStart=/home/jdheyburn/dotfiles/restic/restic-all.sh
+ExecStart=/home/jdheyburn/dotfiles/restic/restic-all.sh backup
 
 [Install]
 WantedBy=multi-user.target
