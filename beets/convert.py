@@ -53,7 +53,7 @@ def main():
         print("Searching for flac in dir")
         files = list(input_path.glob("*.flac"))
         if not files:
-            raise Exception("found no .flav files in dir")
+            raise Exception("found no .flac files in dir")
         stem = input_path.name
         target_dir = pathlib.Path(_CONVERTED_DEST, "mp3", stem)
         print(f"making {target_dir}")

@@ -57,8 +57,8 @@ def validate(args) -> pathlib.Path:
     return config
 
 
-def invoke_beet(config_file: pathlib.Path, beet_args: List[str]):
-    cmd = [str(_BEET_LOC), "--config", str(config_file)] + beet_args
+def invoke_beet(config_file: pathlib.Path, beet_args: List[str], unknown_args: List[str]):
+    cmd = [str(_BEET_LOC), "--config", str(config_file)] + beet_args + unknown_args
     subprocess.run(cmd)
 
 
@@ -71,13 +71,13 @@ def _parse_args():
         help="the config to target",
     )
     parser.add_argument("beet_args", nargs="+", help="the command to pass to beets")
-    return parser.parse_args()
+    return parser.parse_known_args()
 
 
 def main():
-    args = _parse_args()
+    args, unknown_args = _parse_args()
     config_file = validate(args)
-    invoke_beet(config_file, args.beet_args)
+    invoke_beet(config_file, args.beet_args, unknown_args)
 
 
 main()
