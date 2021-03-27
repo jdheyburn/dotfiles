@@ -6,6 +6,6 @@ Description=Restic backup service
 [Service]
 Type=oneshot
 ExecStart=restic backup --verbose --tag systemd.timer $BACKUP_EXCLUDES $BACKUP_PATHS
-ExecStartPost=restic forget --verbose --tag systemd.timer --group-by "paths,tags" --keep-daily $RETENTION_DAYS --k
+ExecStartPost=restic forget --verbose --tag systemd.timer --group-by "paths,tags" --keep-daily $RETENTION_DAYS --keep-weekly $RETENTION_WEEKS --keep-monthly $RETENTION_MONTHS --keep-yearly $RETENTION_YEARS
 #ExecStartPost=rclone -v sync $RESTIC_REPOSITORY gsuite:backup/restic-media --config=${RCLONE_CONFIG}
 EnvironmentFile=/home/restic/restic-media-backup.conf

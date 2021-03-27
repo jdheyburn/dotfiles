@@ -8,3 +8,6 @@ After=restic-all.service
 [Service]
 Type=oneshot
 ExecStart=/home/jdheyburn/dotfiles/restic/rclone-all.sh
+
+[Install]
+WantedBy=restic-all.service
