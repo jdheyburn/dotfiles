@@ -12,9 +12,8 @@ function main() {
     echo "rcloning music -> gdrive:media/music"
     rclone -v sync /mnt/usb/Backup/media/music gdrive:media/music --config=${RCLONE_CONFIG}
 
-    echo "skipping lossless - needs to be copied from gsuite first"
-    #echo "rcloning lossless -> gdrive:media/lossless"
-    #rclone -v sync /mnt/usb/Backup/media/lossless gdrive:media/lossless --config=${RCLONE_CONFIG}
+    echo "rcloning lossless -> gdrive:media/lossless"
+    rclone -v sync /mnt/usb/Backup/media/lossless gdrive:media/lossless --config=${RCLONE_CONFIG}
 
     echo "rcloning vinyl -> gdrive:media/vinyl"
     rclone -v sync /mnt/usb/Backup/media/vinyl gdrive:media/vinyl --config=${RCLONE_CONFIG}
