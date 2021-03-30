@@ -18,9 +18,8 @@ function main() {
     echo "rcloning vinyl -> gdrive:media/vinyl"
     rclone -v sync /mnt/usb/Backup/media/vinyl gdrive:media/vinyl --config=${RCLONE_CONFIG}
 
-    echo "skipping restic backup to backblaze"
-    # TODO restic should go to Backblaze
-    # rclone -v sync /mnt/usb/Backup/restic gsuite:backup/restic --config=${RCLONE_CONFIG}
+    echo "rcloning restic -> b2:restic"
+    rclone -v sync /mnt/usb/Backup/restic b2:ueNufo6p-restic-backups/restic/ --config=${RCLONE_CONFIG}
 
     echo "Done rcloning"
 }
