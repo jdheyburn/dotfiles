@@ -50,7 +50,7 @@ def main():
             print(cmd)
             subprocess.run(cmd)
     elif args.format == "mp3":
-        print("Searching for flac in dir")
+        print("Searching for flac in  dir")
         files = list(input_path.glob("*.flac"))
         if not files:
             raise Exception("found no .flac files in dir")
@@ -60,7 +60,8 @@ def main():
         os.makedirs(target_dir, exist_ok=True)
         for file in files:
             basename = file.stem
-            cmd = ["ffmpeg", "-y", "-i", str(file), "-b:a", "320k", f"{str(target_dir)}/{basename}.mp3"]
+            # cmd = ["ffmpeg", "-y", "-i", str(file), "-b:a", "320k", f"{str(target_dir)}/{basename}.mp3"]
+            cmd = ["lame", "-b", "320", "-h", str(file), f"{str(target_dir)}/{basename}.mp3"]
             print(cmd)
             subprocess.run(cmd)
     cover = list(input_path.glob("cover*"))
