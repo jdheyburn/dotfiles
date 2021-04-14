@@ -49,5 +49,6 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.editorAssociations": [],
   "python.showStartPage": false,
-  "workbench.editor.showTabs": true
+  "workbench.editor.showTabs": true,
+  "go.toolsManagement.autoUpdate": true
 }
