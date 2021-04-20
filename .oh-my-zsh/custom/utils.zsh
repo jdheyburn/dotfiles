@@ -7,11 +7,22 @@ function restart_bluetooth() {
     fi
 }
 
-function conn_headphones() {
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        blueutil --connect 94-db-56-84-69-49
+# HeadPhones
+function hp() {
+    local id="94-db-56-84-69-49"
+    local action=$1
+
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        echo "hp not implemented for $OSTYPE"
+        return 1        
+    fi
+
+    if [[ $action == "c" ]]; then
+        blueutil --connect $id
+    elif [[ $action == "d" ]]; then
+        blueutil --disconnect $id
     else
-        echo "conn_headphones not implemented for $OSTYPE"
+        echo "hp - unknown action: $action"
         return 1
     fi
 }
