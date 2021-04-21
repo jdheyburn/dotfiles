@@ -3,18 +3,25 @@
 # Invoke and pull backups from remote servers and place them on USB
 
 function pcp() {
+
     local fpath="/mnt/mmcblk0p2/tce"
     local fname="mydata"
     local ext="tgz"
     local now=$(date -u +"%Y-%m-%dT%H%M%S")
+
+    local sourcePath="${fpath}/${fname}.${ext}"
+    local dstPath="/mnt/usb/Backup/lms/${fname}_${now}.${ext}"
+
+    echo "starting pcp backup"
     ssh -i ~/.ssh/pcp tc@pcp.joannet.casa -C 'pcp bu'
-    scp -i ~/.ssh/pcp "tc@pcp.joannet.casa:${fpath}/${fname}.${ext}" "/mnt/usb/Backup/lms/${fname}_${now}.${ext}"
+
+    echo "copying $sourcePath on remote to $dstPath"
+    scp -i ~/.ssh/pcp "tc@pcp.joannet.casa:${sourcePath}" $dstPath
 }
 
-
-function doBackups() {
+function main() {
+    echo "entered $0"
     pcp
 }
-
 
 main $@
