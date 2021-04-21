@@ -13,14 +13,14 @@ function pcp() {
     echo "removing previous backups..."
     rm -rf $dstPath
 
-    local sourcePath="${fpath}/${fname}.${ext}"
-    local dstPath="/mnt/usb/Backup/lms/${fname}_${now}.${ext}"
+    local sourceFile="${fpath}/${fname}.${ext}"
+    local dstFile="/mnt/usb/Backup/lms/${fname}_${now}.${ext}"
 
     echo "starting pcp backup"
     ssh -i /home/jdheyburn/.ssh/pcp tc@pcp.joannet.casa -C 'pcp bu'
 
-    echo "copying $sourcePath on remote to $dstPath"
-    scp -i /home/jdheyburn/.ssh/pcp "tc@pcp.joannet.casa:${sourcePath}" $dstPath
+    echo "copying $sourceFile on remote to $dstFile"
+    scp -i /home/jdheyburn/.ssh/pcp "tc@pcp.joannet.casa:${sourceFile}" $dstFile
 }
 
 function main() {
