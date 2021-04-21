@@ -3,7 +3,7 @@
 # Master script for backing up anything to do with restic
 
 function small_files() {
-    export BACKUP_PATHS="/var/lib/unifi/backup/autobackup /etc/pihole"
+    export BACKUP_PATHS="/var/lib/unifi/backup/autobackup /etc/pihole /mnt/usb/Backup/lms"
     #BACKUP_EXCLUDES="--exclude-file /home/rupert/.restic_excludes --exclude-if-present .exclude_from_backup"
     export BACKUP_EXCLUDES=""
     export RETENTION_DAYS=7
@@ -53,6 +53,10 @@ function media() {
 function main() {
 
     mode=$1
+
+    if [ $mode == "backup" ]; then
+        /home/jdheyburn/dotfiles/restic/pull-backups.sh
+    fi
 
     small_files $mode
     media $mode
