@@ -26,3 +26,30 @@ function hp() {
         return 1
     fi
 }
+
+# start squeezelite
+
+function squeezeme() {
+
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        echo "squeezeme not implemented for $OSTYPE"
+        return 1        
+    fi
+
+    local id="94-db-56-84-69-49"
+    local headphones="WH-1000XM3"
+    
+    if ps -ef | grep squeezelite | grep -v grep; then
+        killall squeezelite
+    fi
+
+    local headphones_connected=$(blueutil --is-connected $id)
+
+    if [ $headphones_connected = "0" ]; then
+        hp c
+    fi
+
+    local headphones_id=$(squeezelite -l | grep $headphones | awk '{print $1}')
+
+    squeezelite -n macos -d all=info -o $headphones_id &
+}
