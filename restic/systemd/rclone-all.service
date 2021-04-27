@@ -4,6 +4,7 @@
 [Unit]
 Description=Rclone backup everything service
 After=restic-all.service
+OnFailure=unit-status-mail@%n.service
 
 [Service]
 Type=oneshot

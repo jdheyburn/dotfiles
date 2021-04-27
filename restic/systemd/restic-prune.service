@@ -1,5 +1,6 @@
 [Unit]
 Description=Restic backup service (data pruning)
+OnFailure=unit-status-mail@%n.service
 
 [Service]
 Type=oneshot
