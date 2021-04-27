@@ -1,6 +1,7 @@
 
 [Unit]
 Description=Restic backup everything service
+OnFailure=unit-status-mail@%n.service
 
 [Service]
 Type=oneshot
