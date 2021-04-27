@@ -6,6 +6,8 @@
 
 # Code completions
 source <(terraform-docs completion zsh)
+source <(kubectl completion zsh)
+
 # Path Adjustments
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
