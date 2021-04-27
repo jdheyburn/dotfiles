@@ -14,6 +14,11 @@
 
 # Copied from https://raw.githubusercontent.com/ahmetb/kubectl-aliases/master/.kubectl_aliases
 
+# Mine
+alias kctx='kubectl config current-context'
+
+# Pulled from 9f8948e7c3ca7b4c4c6cdc1461094bce08da758c
+
 alias k='kubectl'
 alias ksys='kubectl --namespace=kube-system'
 alias ka='kubectl apply --recursive -f'
