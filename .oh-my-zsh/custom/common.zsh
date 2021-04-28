@@ -28,12 +28,13 @@ alias mv="mv -v"
 alias cp="cp -Rv"
 #alias pbcopy="xclip -selection clipboard"
 #alias pbpaste="xclip -selection clipboard -o"
-# These are from zsh
 alias pbcopy="clipcopy"
 alias pbpaste="clippaste"
 
 alias vim="nvim"
 alias vi="nvim"
+
+alias venv="source .venv/bin/activate"
 
 alias ranger=". ranger"
 if [[ "$OSTYPE" == "darwin"* ]]; then
