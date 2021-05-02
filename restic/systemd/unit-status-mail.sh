@@ -2,7 +2,7 @@
 
 # From https://northernlightlabs.se/2014-07-05/systemd-status-mail-on-unit-failure.html
 
-MAILTO="root"
+MAILTO="ADD_EMAIL_HERE"
 MAILFROM="unit-status-mailer"
 UNIT=$1
 
