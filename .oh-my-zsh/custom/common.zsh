@@ -48,6 +48,7 @@ else
 fi
 
 alias cat=$BATCAT_CMD
+alias tf="terraform"
 
 # zsh aliases
 alias h="history" # an alias that points to omz_history
