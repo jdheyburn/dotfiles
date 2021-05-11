@@ -166,6 +166,26 @@ function uz() {
     unzip $archive -d $extractDir
 }
 
+# Given a pod name this will return the primary pod in a redis k8s cluster
+function get-k8s-redis-primary() {
+    local pod=$1
+    if [ -z "$pod" ]; then
+        echo "get-k8s-redis-primary - No pod specified"
+        echo "choose from below"
+        kubectl get pods --namespace redis
+        return 1
+    fi
+
+    local cluster_ip=$(kubectl exec $pod -- redis-cli -p 26379 info G ^master | awk '{split($0,a,","); print a[3]}' | awk '{split($0,a,"="); print a[2]}' | awk '{split($0,a,":"); print a[1]}')
+
+    if [ -z "$cluster_ip" ]; then
+        echo "get-k8s-redis-primary - could not find master for pod $pod"
+        return 1
+    fi
+
+    kubectl get services | grep $cluster_ip
+}
+
 # Third-party functions
 
 ##### fzf #### (https://github.com/junegunn/fzf)
