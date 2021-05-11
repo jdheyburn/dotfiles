@@ -20,12 +20,14 @@ setopt HIST_IGNORE_ALL_DUPS # ignore duplicated commands history list
 setopt SHARE_HISTORY        # share command history data
 
 # Aliases
-alias cl="clear"
-alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias awscf="vi ~/.aws/config"
-alias gpm="git pull origin $(git_main_branch)"
-alias mv="mv -v"
+alias cl="clear"
 alias cp="cp -Rv"
+alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias gpm="git pull origin $(git_main_branch)"
+alias kc="kubectx"
+alias kn="kubens"
+alias mv="mv -v"
 #alias pbcopy="xclip -selection clipboard"
 #alias pbpaste="xclip -selection clipboard -o"
 alias pbcopy="clipcopy"
