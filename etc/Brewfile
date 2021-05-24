@@ -35,6 +35,7 @@ brew "gh"
 brew "bash"
 brew "blueutil"
 brew "pwgen"
+brew "k9s" # Kubernetes CLI management
 
 cask "1password"
 cask "alfred"
@@ -50,6 +51,7 @@ cask "google-backup-and-sync"
 cask "docker"
 cask "dbeaver-community"
 cask "adoptopenjdk" # Required by dbeaver-community
+cask "lens" # Kubernetes IDE
 
 # Old stuff but keeping for history
 #brew "python"

@@ -74,6 +74,7 @@ plugins=(
   zsh-syntax-highlighting
   colored-man-pages
   sudo
+  poetry
 )
 
 # brew autocomplete - https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
