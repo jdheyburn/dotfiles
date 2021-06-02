@@ -17,6 +17,7 @@
 # Mine
 alias kgctx='kubectl config current-context'
 alias ksctx='kubectl config use-context'
+alias kgss='kubectl get statefulset'
 
 # Pulled from 9f8948e7c3ca7b4c4c6cdc1461094bce08da758c
 

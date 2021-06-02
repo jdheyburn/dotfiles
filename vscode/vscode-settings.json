@@ -8,7 +8,6 @@
   "terminal.integrated.fontSize": 12,
   "terminal.integrated.copyOnSelection": true,
   "editor.formatOnSave": true,
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#80CBC4",
     "list.activeSelectionForeground": "#80CBC4",
@@ -54,7 +53,6 @@
     }
   ],
   "python.showStartPage": false,
-  "workbench.editor.showTabs": false,
   "go.toolsManagement.autoUpdate": true,
   "workbench.startupEditor": "none",
   "editor.largeFileOptimizations": false,
