@@ -63,7 +63,7 @@ def invoke_beet(config_file: pathlib.Path, beet_args: List[str], unknown_args: L
 
 
 def _parse_args():
-    parser = argparse.ArgumentParser(description="Wrapper around beets for safeguards")
+    parser = argparse.ArgumentParser(description="Wrapper around beets for safeguards", add_help=False)
     parser.add_argument(
         "config",
         type=str,
