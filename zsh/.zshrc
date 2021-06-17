@@ -113,8 +113,16 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Remove user@hostname from prompt
-#prompt_context() {}
+# Prompt stuff
+## Remove user@hostname from prompt
+prompt_context() {}
+
+## Kube context and namespace in prompt https://github.com/jonmosco/kube-ps1
+kube_ps1="/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+if [ -f $kube_ps1 ]; then
+  source $kube_ps1
+  PS1='$(kube_ps1)'$PS1
+fi
 
 # fzf bindings, first for standard installation, then for Nix
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
