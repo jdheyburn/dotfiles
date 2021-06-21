@@ -30,6 +30,7 @@
     niv
 
     # Basic
+    cmus    # cli music player
     duf
     fzf     # fuzzy finder - cmd history search
     htop    # interactive process viewer
@@ -42,12 +43,12 @@
     wget
 
     # Applications
-    _1password-gui
+    awscli
     git
     go
     hugo
     shellcheck
-    terraform
+    # terraform
     terraform-docs
 
     (callPackage ./nvim {})

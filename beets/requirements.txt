@@ -1,6 +1,6 @@
 audioread==2.1.9
 beautifulsoup4==4.9.3
-beetcamp==0.6.0
+beetcamp==0.8.0
 beets==1.5.0
 cached-property==1.5.2
 certifi==2020.12.5

@@ -7,7 +7,6 @@
   "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
   "terminal.integrated.copyOnSelection": true,
   "editor.formatOnSave": true,
-  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "activityBarBadge.background": "#80CBC4",
     "list.activeSelectionForeground": "#80CBC4",
@@ -40,5 +39,16 @@
   "window.titleBarStyle": "custom",
   "diffEditor.ignoreTrimWhitespace": false,
   "explorer.confirmDelete": false,
-  "go.generateTestsFlags": ["-template_dir=/home/jdheyburn/.vscode/gotests"]
+  "go.generateTestsFlags": [
+    "-template_dir=/home/jdheyburn/.vscode/gotests"
+  ],
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "python.showStartPage": false,
+  "tabnine.experimentalAutoImports": true
 }

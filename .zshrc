@@ -73,6 +73,7 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   colored-man-pages
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh

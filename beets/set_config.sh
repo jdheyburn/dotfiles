@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This is no longer used, use the beet.py wrapper instead
+
 DIR=$(realpath $(dirname $0))
 CONF_LOC="$HOME/.config/beets"
 
