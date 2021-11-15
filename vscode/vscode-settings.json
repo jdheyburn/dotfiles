@@ -46,15 +46,16 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "explorer.confirmDragAndDrop": false,
-  "workbench.editorAssociations": [
-    {
-      "viewType": "jupyter-notebook",
-      "filenamePattern": "*.ipynb"
-    }
-  ],
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
   "python.showStartPage": false,
   "go.toolsManagement.autoUpdate": true,
   "workbench.startupEditor": "none",
   "editor.largeFileOptimizations": false,
-  "json.maxItemsComputed": 10000
+  "json.maxItemsComputed": 10000,
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  }
 }
