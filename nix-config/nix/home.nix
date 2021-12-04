@@ -50,6 +50,7 @@
     shellcheck
     # terraform
     terraform-docs
+    obsidian
 
     (callPackage ./nvim {})
   ];

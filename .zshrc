@@ -128,3 +128,8 @@ fi
 
 [[ -s "/home/jdheyburn/.gvm/scripts/gvm" ]] && source "/home/jdheyburn/.gvm/scripts/gvm"
 if [ -e /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# If this is an SSH connection, connect to tmux session if exists, else start one up
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux
+fi
