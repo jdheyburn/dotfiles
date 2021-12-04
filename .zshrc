@@ -130,6 +130,7 @@ fi
 if [ -e /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jdheyburn/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # If this is an SSH connection, connect to tmux session if exists, else start one up
-if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-  tmux new-session -A -s ssh_tmux 
-fi
+# Should not be used - in favour of ssh config: https://stackoverflow.com/a/52838493
+# if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+#  tmux new-session -A -s ssh_tmux 
+#fi
