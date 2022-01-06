@@ -229,7 +229,6 @@ function modify-aws-instance-type() {
     fi
 
     local state=$(echo "$describe_instance" | jq -r '.Reservations[].Instances[0].State.Name')
-    local stopped="false"
     if [[ "$state" != "stopped" ]]; then
         echo "stopping $hostname"
         local state=$(aws ec2 stop-instances --instance-ids $instance_id | jq -r '.StoppingInstances[0].CurrentState.Name')
