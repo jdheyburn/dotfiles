@@ -58,6 +58,10 @@ alias -s {zsh,yml,yaml,txt}=vim
 alias -g G='| grep -i '
 alias -g P=' | landscape > ~/tmp/plan.out 2>&1; cat ~/tmp/plan.out'
 
+
+# kubectl krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # PATHs and things
 ## gettext is keg-only, which means it was not symlinked into /usr/local,
 ## because macOS provides the BSD gettext library & some software gets confused if both are in the library path.
@@ -185,6 +189,70 @@ function get-k8s-redis-primary() {
 
     kubectl get services | grep $cluster_ip
 }
+
+# Change AWS instance type by hostname
+function modify-aws-instance-type() {
+    local hostname=$1
+    if [ -z $hostname ]; then
+        echo "ERR: hostname not provided, usage:"
+        echo "  modify-aws-instance-type HOSTNAME INSTANCE_TYPE"
+        return 1
+    fi
+    local instance_type=$2
+    if [ -z $instance_type ]; then
+        echo "ERR: instance_type not provided, usage:"
+        echo "  modify-aws-instance-type HOSTNAME INSTANCE_TYPE"
+        return 1
+    fi
+
+    local describe_instance=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$hostname")
+
+    local instance_id=$(echo "$describe_instance" | jq -r '.Reservations[].Instances[0].InstanceId')
+    if [ -z $instance_id ]; then
+        echo "ERR: InstanceId not found for $hostname"
+        return 1
+    fi
+
+    echo "$hostname -> $instance_id"
+
+    local curr_instance_type=$(echo "$describe_instance" | jq -r '.Reservations[].Instances[0].InstanceType')
+    if [[ "$instance_type" == "$curr_instance_type" ]]; then
+        echo "$hostname instance type is already $instance_type"
+        return 0
+    fi
+    echo "$hostname instance_type: $curr_instance_type"
+
+    local validate_instance_type=$(aws ec2 describe-instance-types --instance-types $instance_type | jq -r '.InstanceTypes[0].InstanceType')
+    if [[ "$validate_instance_type" != "$instance_type" ]]; then
+        echo "ERR: $instance_type is not a valid instance type"
+        return 1
+    fi
+
+    local state=$(echo "$describe_instance" | jq -r '.Reservations[].Instances[0].State.Name')
+    local stopped="false"
+    if [[ "$state" != "stopped" ]]; then
+        echo "stopping $hostname"
+        local state=$(aws ec2 stop-instances --instance-ids $instance_id | jq -r '.StoppingInstances[0].CurrentState.Name')
+        while [[ "$state" != "stopped" ]]; do
+            echo "waiting for $hostname / $instance_id state = 'stopped', currently $state"
+            sleep 5
+            local state=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=$hostname" | jq -r '.Reservations[].Instances[0].State.Name')
+        done
+    fi
+
+    echo "$hostname stopped. modifying instance type to $instance_type"
+
+    if ! aws ec2 modify-instance-attribute --instance-id $instance_id --instance-type $instance_type; then
+        return 1
+    fi
+
+    echo "starting $hostname"
+
+    local state=$(aws ec2 start-instances --instance-ids $instance_id | jq -r '.StartingInstances[0].CurrentState.Name')
+    echo "$hostname is in $state state"
+    return 0
+}
+
 
 # Third-party functions
 
