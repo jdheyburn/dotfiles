@@ -19,10 +19,12 @@ packaging==20.9
 Pillow==8.1.0
 pyacoustid==1.2.0
 pycountry==20.7.3
+pylast==4.5.0
 pyparsing==2.4.7
 PyYAML==5.4.1
 requests==2.25.1
 requests-oauthlib==1.3.0
+six==1.16.0
 soupsieve==2.2
 Unidecode==1.2.0
 urllib3==1.26.3

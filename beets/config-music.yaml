@@ -1,4 +1,4 @@
-plugins: edit discogs inline info badfiles missing embedart fetchart bandcamp #beatport
+plugins: edit discogs inline info badfiles missing embedart fetchart bandcamp lastgenre #beatport
 
 # Where to store the imported music files, and the db location for tracking
 directory: /mnt/nfs/Backup/media/music
