@@ -16,7 +16,7 @@ musicbrainzngs==0.7.1
 mutagen==1.45.1
 oauthlib==3.1.0
 packaging==20.9
-Pillow==8.1.0
+Pillow==9.0.0
 pyacoustid==1.2.0
 pycountry==20.7.3
 pylast==4.5.0
