@@ -8,7 +8,7 @@ import subprocess
 import shutil
 
 _FORMATS = ["flac", "mp3"]
-_CONVERTED_DEST = pathlib.Path("/home", "jdheyburn", "Music", "converted")
+_CONVERTED_DEST = pathlib.Path(pathlib.Path.home(), "Music", "converted")
 
 
 def _parse_args():
@@ -62,7 +62,7 @@ def main():
             basename = file.stem
             # cmd = ["ffmpeg", "-y", "-i", str(file), "-b:a", "320k", f"{str(target_dir)}/{basename}.mp3"]
             cmd = ["lame", "-b", "320", "-h", str(file), f"{str(target_dir)}/{basename}.mp3"]
-            print(cmd)
+            print(" ".join(cmd))
             subprocess.run(cmd)
     cover = list(input_path.glob("cover*"))
     if cover:
