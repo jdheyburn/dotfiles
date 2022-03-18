@@ -252,6 +252,54 @@ function modify-aws-instance-type() {
     return 0
 }
 
+# For the given hostname, output the IPs and the AZs they are in
+function get-az-ips-for-hostname() {
+    local hostname=$1
+    if [ -z $hostname ]; then
+        echo "ERR: hostname not provided, usage:"
+        echo "  get-az-ips-for-hostname HOSTNAME"
+        return 1
+    fi
+
+    local ips=$(dig $hostname | grep -A3 "ANSWER SECTION" | tail -3 | rev | cut -d " " -f1 | rev | paste -s -d "," -)
+
+    # Optional
+    local region=$2
+    if [ ! -z $region ]; then
+        local ipDetails=$(AWS_REGION=$region aws ec2 describe-network-interfaces --filters Name=addresses.private-ip-address,Values=$ips)
+    else
+        local ipDetails=$(aws ec2 describe-network-interfaces --filters Name=addresses.private-ip-address,Values=$ips)
+    fi
+
+    # https://www.starkandwayne.com/blog/bash-for-loop-over-json-array-using-jq/
+    for row in $(echo $ipDetails | jq -r '.NetworkInterfaces[] | @base64'); do
+        _jq() {
+            echo ${row} | base64 --decode | jq -r ${1}
+        }
+        local az=$(_jq '.AvailabilityZone')
+        local ip=$(_jq '.PrivateIpAddress')
+        echo "$az - $ip"
+    done
+}
+
+# For the given ingress, discover the domain name for it and output the IPs and the AZs they are in
+function get-az-ips-for-ingress() {
+    local ingress=$1
+    if [ -z $ingress ]; then
+        echo "ERR: ingress not provided, usage:"
+        echo "  get-az-ips-for-ingress INGRESS_NAME"
+        return 1
+    fi
+
+    # Optional
+    local region=$2
+
+    local hostname=$(kubectl get services $ingress --output jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+
+    get-az-ips-for-hostname $hostname $region
+}
+
+
 
 # Third-party functions
 
