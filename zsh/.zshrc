@@ -144,11 +144,11 @@ else
   export PATH=$PATH:/usr/local/go/bin
 fi
 
-if type brew &>/dev/null; then
-  if brew --prefix asdf &>/dev/null; then
-    source $(brew --prefix asdf)/asdf.sh
-  fi
-fi
+# if type brew &>/dev/null; then
+#   if brew --prefix asdf &>/dev/null; then
+#     source $(brew --prefix asdf)/asdf.sh
+#   fi
+# fi
 
 if type rbenv &>/dev/null; then
   eval "$(rbenv init -)"
