@@ -1,4 +1,4 @@
-plugins: edit discogs inline info badfiles missing embedart fetchart bandcamp #beatport 
+plugins: edit discogs inline info badfiles missing embedart fetchart bandcamp lastgenre fromfilename #beatport 
 
 # Where to store the imported music files, and the db location for tracking
 directory: /mnt/nfs/Backup/media/lossless
@@ -39,4 +39,9 @@ fetchart:
 # Disable musicbrainz
 #musicbrainz:
 #    host: localhost:6000
+
+lastgenre:
+  count: 4
+  canonical: yes
+  prefer_specific: no
 
