@@ -261,7 +261,7 @@ function get-az-ips-for-hostname() {
         return 1
     fi
 
-    local ips=$(dig $hostname | grep -A3 "ANSWER SECTION" | tail -3 | rev | cut -d " " -f1 | rev | paste -s -d "," -)
+    local ips=$(dig $hostname | grep -A3 "ANSWER SECTION" | tail -3 | rev | cut -d "A" -f1 | rev | awk '{$1=$1};1' | paste -s -d "," -)
 
     # Optional
     local region=$2
