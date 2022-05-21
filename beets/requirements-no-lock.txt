@@ -1,0 +1,5 @@
+beetcamp
+beets==1.6.0
+discogs-client
+pylast
+
