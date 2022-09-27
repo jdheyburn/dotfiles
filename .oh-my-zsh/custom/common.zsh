@@ -25,8 +25,12 @@ alias cl="clear"
 alias cp="cp -Rv"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias gpm="git pull origin $(git_main_branch)"
-alias kc="kubectx"
-alias kn="kubens"
+
+
+source $(brew --prefix switch)/switch.sh
+
+alias kc="switch"
+alias kcn="switch namespace"
 alias mv="mv -v"
 #alias pbcopy="xclip -selection clipboard"
 #alias pbpaste="xclip -selection clipboard -o"
@@ -268,7 +272,7 @@ function get-az-ips-for-hostname() {
     if [ ! -z $region ]; then
         local ipDetails=$(AWS_REGION=$region aws ec2 describe-network-interfaces --filters Name=addresses.private-ip-address,Values=$ips)
     else
-        local ipDetails=$(aws ec2 describe-network-interfaces --filters Name=addresses.private-ip-address,Values=$ips)
+        local ipDetails=$(aws --profile mfa ec2 describe-network-interfaces --filters Name=addresses.private-ip-address,Values=$ips)
     fi
 
     # https://www.starkandwayne.com/blog/bash-for-loop-over-json-array-using-jq/
@@ -317,3 +321,10 @@ function _fzf_compgen_path() {
 function _fzf_compgen_dir() {
     fd --type d --hidden --follow --exclude ".git" . "$1"
 }
+
+
+
+# forgit
+
+#[ -f ~/.forgit/forgit.plugin.zsh ] && source ~/.forgit/forgit.plugin.zsh
+

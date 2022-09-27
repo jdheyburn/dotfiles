@@ -36,6 +36,7 @@ brew "bash"
 brew "blueutil"
 brew "pwgen"
 brew "k9s" # Kubernetes CLI management
+brew "danielfoehrkn/switch/switch"
 
 cask "1password"
 cask "alfred"

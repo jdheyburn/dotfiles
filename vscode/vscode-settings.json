@@ -1,61 +1,69 @@
 {
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 1000,
-  "workbench.colorTheme": "Material Theme",
-  "workbench.iconTheme": "material-icon-theme",
-  "terminal.integrated.shell.osx": "/bin/zsh",
-  "terminal.integrated.fontFamily": "'Meslo LG M DZ for Powerline', monospace",
-  "terminal.integrated.fontSize": 12,
-  "terminal.integrated.copyOnSelection": true,
-  "editor.formatOnSave": true,
-  "workbench.colorCustomizations": {
-    "activityBarBadge.background": "#80CBC4",
-    "list.activeSelectionForeground": "#80CBC4",
-    "list.inactiveSelectionForeground": "#80CBC4",
-    "list.highlightForeground": "#80CBC4",
-    "scrollbarSlider.activeBackground": "#80CBC450",
-    "editorSuggestWidget.highlightForeground": "#80CBC4",
-    "textLink.foreground": "#80CBC4",
-    "progressBar.background": "#80CBC4",
-    "pickerGroup.foreground": "#80CBC4",
-    "tab.activeBorder": "#80CBC4",
-    "notificationLink.foreground": "#80CBC4",
-    "editorWidget.resizeBorder": "#80CBC4",
-    "editorWidget.border": "#80CBC4",
-    "settings.modifiedItemIndicator": "#80CBC4",
-    "settings.headerForeground": "#80CBC4",
-    "panelTitle.activeBorder": "#80CBC4",
-    "breadcrumb.activeSelectionForeground": "#80CBC4",
-    "menu.selectionForeground": "#80CBC4",
-    "menubar.selectionForeground": "#80CBC4"
+  "files.autoSaveDelay" : 1000,
+  "editor.formatOnSave" : true,
+  "workbench.colorTheme" : "Material Theme",
+  "explorer.confirmDragAndDrop" : false,
+  "workbench.colorCustomizations" : {
+    "menubar.selectionForeground" : "#80CBC4",
+    "notificationLink.foreground" : "#80CBC4",
+    "breadcrumb.activeSelectionForeground" : "#80CBC4",
+    "editorSuggestWidget.highlightForeground" : "#80CBC4",
+    "list.activeSelectionForeground" : "#80CBC4",
+    "editorWidget.border" : "#80CBC4",
+    "textLink.foreground" : "#80CBC4",
+    "editorWidget.resizeBorder" : "#80CBC4",
+    "scrollbarSlider.activeBackground" : "#80CBC450",
+    "pickerGroup.foreground" : "#80CBC4",
+    "settings.headerForeground" : "#80CBC4",
+    "panelTitle.activeBorder" : "#80CBC4",
+    "progressBar.background" : "#80CBC4",
+    "menu.selectionForeground" : "#80CBC4",
+    "list.highlightForeground" : "#80CBC4",
+    "settings.modifiedItemIndicator" : "#80CBC4",
+    "list.inactiveSelectionForeground" : "#80CBC4",
+    "activityBarBadge.background" : "#80CBC4",
+    "tab.activeBorder" : "#80CBC4"
   },
-  "materialTheme.accent": "Teal",
-  "go.useLanguageServer": true,
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "workbench.iconTheme" : "material-icon-theme",
+  "[json]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
   },
-  "go.lintTool": "golangci-lint",
-  "go.lintFlags": ["--fast"],
-  "window.titleBarStyle": "custom",
-  "diffEditor.ignoreTrimWhitespace": false,
-  "explorer.confirmDelete": false,
-  "go.generateTestsFlags": [
-    "-template_dir=/Users/joseph.heyburn/.vscode/gotests/templates"
+  "go.useLanguageServer" : true,
+  "go.generateTestsFlags" : [
+    "-template_dir=\/Users\/joseph.heyburn\/.vscode\/gotests\/templates"
   ],
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "notebook.cellToolbarLocation" : {
+    "default" : "right",
+    "jupyter-notebook" : "left"
   },
-  "explorer.confirmDragAndDrop": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+  "go.lintFlags" : [
+    "--fast"
+  ],
+  "go.toolsManagement.autoUpdate" : true,
+  "terminal.integrated.shell.osx" : "\/bin\/zsh",
+  "window.titleBarStyle" : "custom",
+  "terminal.integrated.copyOnSelection" : true,
+  "json.maxItemsComputed" : 10000,
+  "explorer.confirmDelete" : false,
+  "go.lintTool" : "golangci-lint",
+  "workbench.editorAssociations" : {
+    "*.ipynb" : "jupyter-notebook"
   },
-  "python.showStartPage": false,
-  "go.toolsManagement.autoUpdate": true,
+  "terminal.integrated.fontSize" : 12,
+  "diffEditor.ignoreTrimWhitespace" : false,
+  "materialTheme.accent" : "Teal",
+  "editor.accessibilitySupport" : "off",
+  "python.showStartPage" : false,
+  "files.autoSave" : "afterDelay",
+  "editor.largeFileOptimizations" : false,
+  "[html]" : {
+    "editor.defaultFormatter" : "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontFamily" : "'Meslo LG M DZ for Powerline', monospace",
   "workbench.startupEditor": "none",
-  "editor.largeFileOptimizations": false,
-  "json.maxItemsComputed": 10000,
-  "notebook.cellToolbarLocation": {
-    "default": "right",
-    "jupyter-notebook": "left"
-  }
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "editor.experimental.stickyScroll.enabled": true
 }
